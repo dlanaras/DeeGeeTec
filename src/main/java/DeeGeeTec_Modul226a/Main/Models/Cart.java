@@ -13,11 +13,4 @@ public class Cart {
         this.items = items;
     }
 
-    public void FillCartUsingWishlist(List<Item> wishlist){
-        if(!wishlist.isEmpty())
-        {
-            this.items.addAll(wishlist);
-        }
-    }
-
 }
