@@ -1,11 +1,10 @@
 package DeeGeeTec_Modul226a.Main.Tests;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import DeeGeeTec_Modul226a.Main.Account;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import DeeGeeTec_Modul226a.Main.Models.Account;
 import org.junit.Test;
-
-
-import java.security.MessageDigest;
 
 public class AccountTest {
     @Test
@@ -19,4 +18,12 @@ public class AccountTest {
         assertEquals(hashedPassword, expectedHash, "Please learn to hash passwords (actual): " + hashedPassword + " (expected): " + expectedHash);
     }
 
+    @Test
+    public void PasswordCheckWorks() {
+        Account account = new Account();
+        String testPassword = "TheCoolerPassword";
+        account.setPassword("TheCoolerPassword");
+
+        assertTrue(account.CheckPassword(testPassword));
+    }
 }
