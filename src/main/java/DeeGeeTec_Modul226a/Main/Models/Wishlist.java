@@ -4,6 +4,9 @@ import java.util.List;
 
 public class Wishlist {
     private List<Item> wishlistItems;
+    private int wishlistId;
+
+    public int getWishlistId() { return this.wishlistId; }
 
     public List<Item> getItems() {
         return wishlistItems;

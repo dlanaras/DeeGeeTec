@@ -3,10 +3,13 @@ package DeeGeeTec_Modul226a.Main.Models;
 import java.util.List;
 
 public class Cart {
+    private int cartId;
     private List<Item> cartItems;
 
+    public int getCartId() { return this.cartId; }
+
     public List<Item> getItems() {
-        return cartItems;
+        return this.cartItems;
     }
 
     public void setItems(List<Item> items) {
@@ -15,6 +18,6 @@ public class Cart {
 
     public void addItem(Item itemToAdd){
         //adds am Item to the Cart
-        cartItems.add(itemToAdd);
+        this.cartItems.add(itemToAdd);
     };
 }

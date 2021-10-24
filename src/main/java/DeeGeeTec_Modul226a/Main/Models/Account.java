@@ -8,10 +8,23 @@ public class Account {
     private String email;
     private String phoneNumber;
     private Location location;
+    private int accountId;
+
+    public Account(String username, String password, String email, String phoneNumber, Location location) {
+        this.username = username;
+        this.password = password;
+        this.email = email;
+        this.phoneNumber = phoneNumber;
+        this.location = location;
+    }
+
+    public Account() {}
 
     public void setPassword(String password) {
         this.password = this.HashPassword(password);
     }
+
+    public int getAccountId() { return this.accountId; }
 
     public String getUsername() {
         return username;

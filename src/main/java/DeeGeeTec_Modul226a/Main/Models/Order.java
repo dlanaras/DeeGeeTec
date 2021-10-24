@@ -3,17 +3,13 @@ package DeeGeeTec_Modul226a.Main.Models;
 import java.util.List;
 
 public class Order {
-    private String id;
+    private int orderId;
     private Account account;
     private List<OrderDetails> orderDetails;
     private List<ShipmentDetails> shipmentDetails;
 
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
+    public int getOrderId() {
+        return this.orderId;
     }
 
     public Account getAccount() {
