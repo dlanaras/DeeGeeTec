@@ -1,5 +1,6 @@
 package DeeGeeTec_Modul226a.Main.Controllers;
 
+import DeeGeeTec_Modul226a.Main.Models.Account;
 import DeeGeeTec_Modul226a.Main.Models.Cart;
 import DeeGeeTec_Modul226a.Main.Models.Item;
 import DeeGeeTec_Modul226a.Main.Models.Wishlist;
@@ -15,7 +16,7 @@ public class CartHandler {
     }
 
     public void RemoveItemFromCart(int itemId) {
-        //Get user cart with using SQL query
+        //Get user cart using SQL query
         //DELETE * FROM 'Cart' where 'Cart'.'itemFK' = itemId;
 
     }
@@ -29,6 +30,8 @@ public class CartHandler {
 
     public Cart GetCart() {
         //get current user and get his cart
+        Account currentUser = AccountHandler.getCurrentUser();
+        //would return currentUser cart by finding corresponding foreign key in DB
         return new Cart();
 
     }
