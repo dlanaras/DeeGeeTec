@@ -17,4 +17,4 @@ Auf DeeGeeTec kann man Artikel in eine Merkliste speichern, diese dann im Korb i
 * Datenbank wäre erweiterbar
 
 ## Lizenz
-lol
+GNU GPL-3.0 License
