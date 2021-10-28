@@ -13,7 +13,7 @@ import DeeGeeTec_Modul226a.Main.Models.Location;
  * This is the controller that handles everything that has to do with the account.
  *
  * @author Sven, Dimitrios, Arman
- * @version 0.9
+ * @version 1.0
  */
 public class AccountHandler {
     private String sessionCookie;
