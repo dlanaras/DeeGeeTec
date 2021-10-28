@@ -1,6 +1,8 @@
 package DeeGeeTec_Modul226a.Main.Controllers;
 
 import java.net.HttpURLConnection;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.net.http.*;
 import org.springframework.http.*;
 
@@ -26,6 +28,7 @@ public class AccountHandler {
         //don't know how dbs are used in java so im writing an example of how it would be in SQL
 
         if(AccountHandler.getCurrentUser() != null) {
+            return ResponseEntity.ok().build();
             // continue to web frontend
         } else {
 
@@ -44,7 +47,7 @@ public class AccountHandler {
                 }
             }
             catch (Exception e) {
-
+                System.out.println("Don't remember why i made this");
             }
 
         }
@@ -59,29 +62,31 @@ public class AccountHandler {
      * @param phoneNumber The PhoneNumber of the account
      * @param location The Location of the account
      */
-    public void Register(String username, String password, String phoneNumber, Location location) {
+    public void Register(String username, String password, String phoneNumber, Location location) throws URISyntaxException {
 
-            Account accountMightAlreadyExist = SELECT * FROM 'Account' WHERE 'Account'.'username' = username;
-            bool accountAlreadyExists = accountMightAlreadyExist != null;
+            Account accountMightAlreadyExist = new Account();/*SELECT * FROM 'Account' WHERE 'Account'.'username' = username;*/
 
-            if(!accountAlreadyExists) {
-                Location possiblyExistingLocation = SELECT * FROM 'Location'
+            if(accountMightAlreadyExist != null) {
+                Location possiblyExistingLocation = new Location();/*SELECT * FROM 'Location'
                 WHERE 'street' = location.getStreet()
                 AND 'plz' = location.getPlz()
                 AND 'streetNum' = location.getStreetNum()
-                AND 'place' = location.getPlace();
+                AND 'place' = location.getPlace();*/
 
-                bool locationAlreadyExists = possiblyExistingLocation != null;
+                boolean locationAlreadyExists = possiblyExistingLocation != null;
 
                 if(locationAlreadyExists) {
-                   INSERT VALUES(password, username, email, phoneNumber, possiblyExistingLocation.GetLocationId()) INTO 'Account'
+                    ResponseEntity.created(new URI("/idk")).build();
+                   //INSERT VALUES(password, username, email, phoneNumber, possiblyExistingLocation.GetLocationId()) INTO 'Account'
                 } else {
-                    INSERT VALUES(location.getStreet, location.getPlz, location.getStreetNum, location.getPlace)
-                    Location newLocation = repeat line 35 to 39
-                    INSERT VALUES(password, username, email, phoneNumber, newLocation.getLocationId) INTO 'Account'
+                    //INSERT VALUES(location.getStreet, location.getPlz, location.getStreetNum, location.getPlace)
+                    Location newLocation = new Location();
+                    //INSERT VALUES(password, username, email, phoneNumber, newLocation.getLocationId) INTO 'Account'
+                    ResponseEntity.created(new URI("/idk")).build();
                 }
                 //continue to frontend login page and create cookie(in the frontend)
             } else {
+                ResponseEntity.status(403).build();
                 //error message in frontend account already exists
             }
 
