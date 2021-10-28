@@ -7,14 +7,23 @@ import DeeGeeTec_Modul226a.Main.Models.Wishlist;
 
 import java.util.List;
 
+/**
+ * This Controller handles everything that has to do with the Shopping Cart
+ */
 public class CartHandler {
 
+    /**
+     * @param item The Item that has to be added to the cart
+     */
     public void AddItemToCart(Item item) {
         //find user cart with items joined using SQL query and save it as a Cart
         //cart.AddItem(item)
         //save changes in DB using SQL query
     }
 
+    /**
+     * @param itemId ID of the Item to be removed
+     */
     public void RemoveItemFromCart(int itemId) {
         //Get user cart using SQL query
         //DELETE * FROM 'Cart' where 'Cart'.'itemFK' = itemId;
