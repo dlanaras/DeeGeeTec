@@ -1,4 +1,4 @@
-# DeeGeeTec README Draft
+# DeeGeeTec README
 ## Einleitung
 Wir machen einen Job für Dee Gee Tec. Diese Firma ist Digitec sehr ähnlich. Man kann User Accounts erstellen und mit diesem Computerartikel bestellen. Das Lager soll vorerst nicht digital geführt werden, da Sie einfach die Artikel neu bestellen und so früh wie möglich liefern. Man soll beliebig viele Artikel bestellen können. Dies wird in einer Datenbank geregelt.
 
