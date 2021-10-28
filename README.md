@@ -12,7 +12,6 @@ Auf DeeGeeTec kann man Artikel in eine Merkliste speichern, diese dann im Korb i
 ## Detalierte Anforderungen (Wird erweitert mit der Zeit)
 * Kunden sind einmalig erfassbar
 * Datenbank in der 3. Normalform
-* Mitarbeiten können erfasst werden mit Chef (Rekursion)
 * Passwörter sind gehashed
 * Datenbank wäre erweiterbar
 
