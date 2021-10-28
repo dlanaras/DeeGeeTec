@@ -62,7 +62,7 @@ public class AccountHandler {
      * @param phoneNumber The PhoneNumber of the account
      * @param location The Location of the account
      */
-    public void Register(String username, String password, String phoneNumber, Location location) throws URISyntaxException {
+    public ResponseEntity<Account> Register(String username, String password, String phoneNumber, Location location) throws URISyntaxException {
 
             Account accountMightAlreadyExist = new Account();/*SELECT * FROM 'Account' WHERE 'Account'.'username' = username;*/
 
@@ -76,17 +76,17 @@ public class AccountHandler {
                 boolean locationAlreadyExists = possiblyExistingLocation != null;
 
                 if(locationAlreadyExists) {
-                    ResponseEntity.created(new URI("/idk")).build();
+                    return ResponseEntity.created(new URI("/idk")).build();
                    //INSERT VALUES(password, username, email, phoneNumber, possiblyExistingLocation.GetLocationId()) INTO 'Account'
                 } else {
                     //INSERT VALUES(location.getStreet, location.getPlz, location.getStreetNum, location.getPlace)
                     Location newLocation = new Location();
                     //INSERT VALUES(password, username, email, phoneNumber, newLocation.getLocationId) INTO 'Account'
-                    ResponseEntity.created(new URI("/idk")).build();
+                    return ResponseEntity.created(new URI("/idk")).build();
                 }
                 //continue to frontend login page and create cookie(in the frontend)
             } else {
-                ResponseEntity.status(403).build();
+                return ResponseEntity.status(403).build();
                 //error message in frontend account already exists
             }
 
