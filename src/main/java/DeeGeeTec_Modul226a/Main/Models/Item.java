@@ -2,14 +2,17 @@ package DeeGeeTec_Modul226a.Main.Models;
 
 public class Item {
     private String itemName;
-    private float preis;
+    private float price;
+    private int itemId;
 
-    public float getPreis() {
-        return preis;
+    public int getItemId() { return this.itemId; }
+
+    public float getPrice() {
+        return price;
     }
 
-    public void setPreis(float preis) {
-        this.preis = preis;
+    public void setPrice(float price) {
+        this.price = price;
     }
 
     public String getItemName() {

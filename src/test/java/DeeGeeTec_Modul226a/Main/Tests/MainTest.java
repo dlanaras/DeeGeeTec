@@ -5,16 +5,8 @@ import org.junit.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class MainTest {
-    @Test
-    public void UserCanLogin() {
-        Account account = new Account();
 
-    }
-
-    @Test
-    public void UserCanRegister() {
-
-    }
+    //TODO: create multiple tests out of this one (for each controller/handler)
 
     @Test
     public void UserCanAddItemsToCart() {

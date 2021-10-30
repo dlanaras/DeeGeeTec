@@ -5,13 +5,24 @@ import org.apache.commons.codec.digest.DigestUtils;
 public class Account {
     private String password;
     private String username;
-    private String email;
     private String phoneNumber;
     private Location location;
+    private int accountId;
+
+    public Account(String username, String password, String phoneNumber, Location location) {
+        this.username = username;
+        this.password = password;
+        this.phoneNumber = phoneNumber;
+        this.location = location;
+    }
+
+    public Account() {}
 
     public void setPassword(String password) {
         this.password = this.HashPassword(password);
     }
+
+    public int getAccountId() { return this.accountId; }
 
     public String getUsername() {
         return username;
@@ -21,13 +32,6 @@ public class Account {
         this.username = username;
     }
 
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
 
     public String getPhoneNumber() {
         return phoneNumber;

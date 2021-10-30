@@ -3,6 +3,11 @@ package DeeGeeTec_Modul226a.Main.Models;
 public class Location {
     private String street;
     private String plz;
+    private String streetNum;
+    private String place;
+    private int locationId;
+
+    public int getLocationId() { return this.locationId; }
 
     public String getStreet() {
         return street;
@@ -36,6 +41,4 @@ public class Location {
         this.place = place;
     }
 
-    private String streetNum;
-    private String place;
 }
