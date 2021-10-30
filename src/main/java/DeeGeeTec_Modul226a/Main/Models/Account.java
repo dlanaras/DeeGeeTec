@@ -53,6 +53,10 @@ public class Account {
         return DigestUtils.sha512Hex(password);
     }
 
+    /**
+     * @param userInputedPassword the password the user provided to log in
+     * @return boolean that checks if the hashed password equals our saved hashed password
+     */
     public boolean CheckPassword(String userInputedPassword) {
         return this.HashPassword(userInputedPassword).equals(this.password);
     }

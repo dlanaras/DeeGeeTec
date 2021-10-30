@@ -35,6 +35,9 @@ public class AccountHandlerTest {
         assertEquals(accountHandler.Register("Joe", "HashedPassword", ...), HttpURLConnection.HTTP_CREATED)
     }*/
 
+    /**
+     * Test to check if logging in is possible
+     */
     @Test
     public void ReturnsCurrentUser(){
         /*

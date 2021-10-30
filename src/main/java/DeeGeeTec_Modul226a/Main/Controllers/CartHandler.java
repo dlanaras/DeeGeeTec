@@ -33,6 +33,10 @@ public class CartHandler {
 
     }
 
+    /**
+     * @param wishlist A list of the items which are in the wishlist
+     *
+     */
     public void AddItemsFromWishlist(List<Item> wishlist) {
         //Get user wishlist and save it as wishlist including item list (with help of inner join)
         //Get user cart
@@ -40,6 +44,9 @@ public class CartHandler {
         //Save changes in DB
     }
 
+    /**
+     * @return gets all the items from the shopping cart of the user
+     */
     public Cart GetCart() {
         //get current user and get his cart
         Account currentUser = AccountHandler.getCurrentUser();

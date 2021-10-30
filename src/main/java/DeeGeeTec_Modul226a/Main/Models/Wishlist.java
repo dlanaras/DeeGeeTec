@@ -16,6 +16,9 @@ public class Wishlist {
         this.wishlistItems = items;
     }
 
+    /**
+     * @param itemToAdd the item to add to the wishlist
+     */
     public void addItemToWishlist(Item itemToAdd){
         //adds an item to the wishlist
         wishlistItems.add(itemToAdd);

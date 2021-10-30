@@ -16,7 +16,11 @@ public class Cart {
         this.cartItems = items;
     }
 
+    /**
+     * @param itemToAdd the item to add to the cart
+     */
     public void addItem(Item itemToAdd){
+
         //adds am Item to the Cart
         this.cartItems.add(itemToAdd);
     };
