@@ -56,27 +56,9 @@ INSERT INTO customeraccount_tbl (Lastname, Firstname, Username, Password, addres
 
 /* Here start the testcases */
 
-
-/* delete all orders should fail as no orders should be deleteable */
-call testcase_expected_sqlexception('delete * from order_tbl','delete all orders');
-
-/* insert username dekrasse123 should not be able to be inserted as it already exists */
-call testcase_expected_sqlexception('INSERT INTO customeraccount_tbl (Lastname, Firstname, Username, Password) VALUES ("Lanaras", "Dimitrios", "dekrasse123","cool")','Add User with Username dekrasse123');
-
-/* update the username should work without errors IMPORTANT that the ID is 1 */
-call testcase_expected_nosqlexception('Update customeraccount_tbl SET Username = "dekrasse123" WHERE customeraccount_ID = 1','Update Username of customer with ID 1');
-
-/* update the lastname should work without errors IMPORTANT that the ID is 1 */
-call testcase_expected_nosqlexception('Update customeraccount_tbl SET Lastname = "OppligerdeKrasse" WHERE customeraccount_ID = 1','Update lastname of customer with ID 1');
-
-/* update the firstname should work without errors IMPORTANT that the ID is 1 */
-call testcase_expected_nosqlexception('Update customeraccount_tbl SET Firstname = "Sveno" WHERE customeraccount_ID = 1','Update firstname of customer with ID 1');
-
-/* update the password should work without errors IMPORTANT that the ID is 1 */
-call testcase_expected_nosqlexception('Update customeraccount_tbl SET Password = "cool123" WHERE customeraccount_ID = 1','Update password of customer with ID 1');
-
-/* update the address should work without errors IMPORTANT that the ID is 1 */
-call testcase_expected_nosqlexception('Update customeraccount_tbl SET address_FK = 1 WHERE customeraccount_ID = 1','Update Address of customer with ID 1');
+/* positive tests */
+/* negative tests */
+/* expected rows tests */
 
 /* here we cleanup the db*/
 

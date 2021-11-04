@@ -38,6 +38,9 @@ public class AccountHandlerTest {
 
     }
 
+    /**
+     * Test to check if new users can register themselfs
+     */
     @Test
     public void UserCanRegister() {
         throw new NotImplementedException();
