@@ -1,9 +1,8 @@
 package DeeGeeTec_Modul226a.Main.Controllers;
 
-import java.net.HttpURLConnection;
-import java.net.URI;
 import java.net.URISyntaxException;
-import java.net.http.*;
+import java.util.InputMismatchException;
+
 import org.springframework.http.*;
 
 import DeeGeeTec_Modul226a.Main.Models.Account;
@@ -27,16 +26,22 @@ public class AccountHandler {
         //search through db for username
         //don't know how dbs are used in java so im writing an example of how it would be in SQL
 
-        if(AccountHandler.getCurrentUser() != null) {
+        /*if(AccountHandler.getCurrentUser() != null) {
             return ResponseEntity.ok().build();
             // continue to web frontend
         } else {
+        TODO: should be readded at the next IT-Module (226b) when it actually returns real data
+         */
 
             try {
-                Account accountToBeLoggedIn = new Account();
+                Account accountToBeLoggedIn = new Account(username, password, new Location());
                 /*SELECT * FROM 'Account' WHERE 'Account'.'username' = username;*/
-                boolean userNameExists = accountToBeLoggedIn != null; //there might be a better way to check than this
-                boolean isPasswordCorrect = accountToBeLoggedIn.CheckPassword(password);
+
+                //Temporarily here until program actually has a db connection
+                boolean userNameExists = accountToBeLoggedIn.getUsername().equals("Joe");
+                boolean isPasswordCorrect = accountToBeLoggedIn.CheckPassword("HashedPassword");
+
+
 
                 if(isPasswordCorrect && userNameExists) {
                     // continue to web frontend of Deegeetec Website and create sessioncookie for user
@@ -50,7 +55,7 @@ public class AccountHandler {
                 System.out.println("Don't remember why i made this");
             }
 
-        }
+
         return ResponseEntity.status(403).build();
     }
 
@@ -64,9 +69,9 @@ public class AccountHandler {
      */
     public ResponseEntity<Account> Register(String username, String password, String phoneNumber, Location location) throws URISyntaxException {
 
-            Account accountMightAlreadyExist = new Account();/*SELECT * FROM 'Account' WHERE 'Account'.'username' = username;*/
+            Account account = null; /*SELECT * FROM 'Account' WHERE 'Account'.'username' = username;*/
 
-            if(accountMightAlreadyExist != null) {
+            if(account == null) {
                 Location possiblyExistingLocation = new Location();/*SELECT * FROM 'Location'
                 WHERE 'street' = location.getStreet()
                 AND 'plz' = location.getPlz()
@@ -76,13 +81,15 @@ public class AccountHandler {
                 boolean locationAlreadyExists = possiblyExistingLocation != null;
 
                 if(locationAlreadyExists) {
-                    return ResponseEntity.created(new URI("/idk")).build();
+                    account = new Account(username, password, location, phoneNumber);
+                    return new ResponseEntity<Account>(account, HttpStatus.CREATED);
                    //INSERT VALUES(password, username, email, phoneNumber, possiblyExistingLocation.GetLocationId()) INTO 'Account'
                 } else {
                     //INSERT VALUES(location.getStreet, location.getPlz, location.getStreetNum, location.getPlace)
-                    Location newLocation = new Location();
+                    location = new Location();
+                    account = new Account(username, password, location, phoneNumber);
                     //INSERT VALUES(password, username, email, phoneNumber, newLocation.getLocationId) INTO 'Account'
-                    return ResponseEntity.created(new URI("/idk")).build();
+                    return new ResponseEntity<Account>(account, HttpStatus.CREATED);
                 }
                 //continue to frontend login page and create cookie(in the frontend)
             } else {
@@ -108,13 +115,26 @@ public class AccountHandler {
         //TODO: decided that the cookie is just gonna have the username and the hash of the user as a Name
         //TODO: then it will be read and with the help of an SQL query the user will be found and selected
         //Example
-        String userName = getCurrentSessionCookieAsStrings()[0];
-        String hashedPassword = getCurrentSessionCookieAsStrings()[1];
+        String[] currentSessionCookie = getCurrentSessionCookieAsStrings();
+
+        String userName = currentSessionCookie[0];
+        String hashedPassword = currentSessionCookie[1];
+
+        String expectedUsername = "Joe";
+        String expectedPassword = "HashedPassword";
 
         //new Account() to be replaced with SQL query that finds user with
         // matching username and password (using the userName and hashedPassword strings above)
-        Account currentAccount = new Account();
-        return currentAccount;
+        if(userName.equals(expectedUsername) && hashedPassword.equals(expectedPassword))
+        {
+            Account currentAccount = new Account(userName, hashedPassword, new Location());
+
+            return currentAccount;
+        }
+        else
+        {
+            throw new InputMismatchException(); //only temporary for testing purposes
+        }
 
     }
 

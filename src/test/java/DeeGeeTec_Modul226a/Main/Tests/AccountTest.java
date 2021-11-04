@@ -1,6 +1,7 @@
 package DeeGeeTec_Modul226a.Main.Tests;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 import DeeGeeTec_Modul226a.Main.Models.Account;
 import org.junit.Test;
