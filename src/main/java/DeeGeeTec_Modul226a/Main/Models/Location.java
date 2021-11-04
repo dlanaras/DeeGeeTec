@@ -1,10 +1,25 @@
 package DeeGeeTec_Modul226a.Main.Models;
 
 public class Location {
+    /**
+     * This String contains the street of a location
+     */
     private String street;
+    /**
+     * This String contains the PLZ of a location
+     */
     private String plz;
+    /**
+     * This String contains the streetnumber of a location
+     */
     private String streetNum;
+    /**
+     * This String contains the place of a location
+     */
     private String place;
+    /**
+     * This int contains the ID of a location
+     */
     private int locationId;
 
     public int getLocationId() { return this.locationId; }

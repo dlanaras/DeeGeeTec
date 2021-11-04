@@ -3,7 +3,13 @@ package DeeGeeTec_Modul226a.Main.Models;
 import java.util.List;
 
 public class Cart {
+    /**
+     * This int contains the Id of the Cart
+     */
     private int cartId;
+    /**
+     * This is a List with all the Items in the shoppingcart
+     */
     private List<Item> cartItems;
 
     public int getCartId() { return this.cartId; }
@@ -16,12 +22,4 @@ public class Cart {
         this.cartItems = items;
     }
 
-    /**
-     * @param itemToAdd the item to add to the cart
-     */
-    public void addItem(Item itemToAdd){
-
-        //adds am Item to the Cart
-        this.cartItems.add(itemToAdd);
-    };
 }

@@ -6,7 +6,7 @@ public class Order {
     private int orderId;
     private Account account;
     private List<OrderDetails> orderDetails;
-    private List<ShipmentDetails> shipmentDetails;
+    private ShipmentDetails shipmentDetails;
 
     public int getOrderId() {
         return this.orderId;
@@ -28,11 +28,11 @@ public class Order {
         this.orderDetails = orderDetails;
     }
 
-    public List<ShipmentDetails> getShipmentDetails() {
+    public ShipmentDetails getShipmentDetails() {
         return shipmentDetails;
     }
 
-    public void setShipmentDetails(List<ShipmentDetails> shipmentDetails) {
+    public void setShipmentDetails(ShipmentDetails shipmentDetails) {
         this.shipmentDetails = shipmentDetails;
     }
 

@@ -3,10 +3,25 @@ package DeeGeeTec_Modul226a.Main.Models;
 import org.apache.commons.codec.digest.DigestUtils;
 
 public class Account {
+    /**
+     * This String contains the password
+     */
     private String password;
+    /**
+     * This String contains the username
+     */
     private String username;
+    /**
+     * This String contains the Phonenumber
+     */
     private String phoneNumber;
+    /**
+     * This Contains the Location connected to a account from the DB
+     */
     private Location location;
+    /**
+     * This Int contains the accountID
+     */
     private int accountId;
 
     public Account(String username, String password, String phoneNumber, Location location) {

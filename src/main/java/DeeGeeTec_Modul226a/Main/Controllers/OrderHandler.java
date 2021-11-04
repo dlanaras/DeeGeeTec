@@ -26,7 +26,7 @@ public class OrderHandler {
         Account currentUser = AccountHandler.getCurrentUser();
         Order orderToBeCreated = new Order();
         orderToBeCreated.setOrderDetails(new ArrayList<OrderDetails>());
-        orderToBeCreated.setShipmentDetails(new ArrayList<ShipmentDetails>());
+        orderToBeCreated.setShipmentDetails(new ShipmentDetails());
 
     }
 
