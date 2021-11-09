@@ -19,18 +19,14 @@ public class CartHandler {
      * @param item The Item that has to be added to the cart
      */
     public void AddItemToCart(Item item) {
-        //find user cart with items joined using SQL query and save it as a Cart
-        //cart.AddItem(item)
-        //save changes in DB using SQL query
+        Cart userCart = this.GetCart();
+        userCart.addItem(item);
     }
 
     /**
      * @param itemId ID of the Item to be removed
      */
     public void RemoveItemFromCart(int itemId) {
-        //Get user cart using SQL query
-        //DELETE * FROM 'Cart' where 'Cart'.'itemFK' = itemId;
-
     }
 
     /**
@@ -38,10 +34,7 @@ public class CartHandler {
      *
      */
     public void AddItemsFromWishlist(List<Item> wishlist) {
-        //Get user wishlist and save it as wishlist including item list (with help of inner join)
-        //Get user cart
-        //foreach(Item item in wishlist) ->  cart.AddItem(item)
-        //Save changes in DB
+
     }
 
     /**
@@ -50,8 +43,9 @@ public class CartHandler {
     public Cart GetCart() {
         //get current user and get his cart
         Account currentUser = AccountHandler.getCurrentUser();
-        //would return currentUser cart by finding corresponding foreign key in DB
-        return new Cart();
+        Cart userCart = new Cart(); //instead of new Cart it would get the cart of the user from the frontend (localstorage)
+        // since it doesn't get saved in the db, or we would get the cart from a nosql db if we decide to add that in the next module
 
+        return userCart; //would be the cart of the user
     }
 }
