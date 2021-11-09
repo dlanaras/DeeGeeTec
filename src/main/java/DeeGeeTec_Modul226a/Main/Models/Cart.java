@@ -21,5 +21,9 @@ public class Cart {
     public void setItems(List<Item> items) {
         this.cartItems = items;
     }
+    
+    public void addItem(Item item) {
+        this.cartItems.add(item);
+    }
 
 }
