@@ -55,8 +55,8 @@ INSERT INTO address_tbl (PLZ, Street, Streetnumber, Country, Place) VALUES ('815
 INSERT INTO address_tbl (PLZ, Street, Streetnumber, Country, Place) VALUES ('815423', 'Garten', '35b', 'Switzerland','Oberglatt');
 
 INSERT INTO account_tbl (Lastname, Firstname, Username, Email, Password, address_IDFK) VALUES ('Oppliger', 'Sven', 'dekrasse123','test@gmail.com','cool', 1);
-INSERT INTO account_tbl (Lastname, Firstname, Username, Email, Password, address_IDFK) VALUES ('Oppliger2', 'Sven2', 'dekrasse1234','test@gmail.com','cool', 1);
-INSERT INTO account_tbl (Lastname, Firstname, Username, Email, Password, address_IDFK) VALUES ('Oppliger3', 'Sven3', 'dekrasse1234','test@gmail.com','cool', 1);
+INSERT INTO account_tbl (Lastname, Firstname, Username, Email, Password, address_IDFK) VALUES ('Oppliger2', 'Sven2', 'dekrasse1234','test@gmail.com1','cool', 1);
+INSERT INTO account_tbl (Lastname, Firstname, Username, Email, Password, address_IDFK) VALUES ('Oppliger3', 'Sven3', 'dekrasse12345','test@gmail.com2','cool', 1);
 INSERT INTO employeeaccount_tbl (employeenumber, account_IDFK) VALUES ('45678', 1);
 INSERT INTO employeeaccount_tbl (employeenumber, account_IDFK) VALUES ('4567348', 2);
 INSERT INTO chef_tbl (employee_ID, chef_ID) VALUES (1, 2);
