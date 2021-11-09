@@ -7,7 +7,7 @@ import DeeGeeTec_Modul226a.Main.Models.Wishlist;
  * This is the controller that handles everything that has to do with the WishList.
  *
  * @author Sven, Dimitrios, Arman
- * @version 1.0
+ * @version 2.0
  */
 public class WishlistHandler {
     /**

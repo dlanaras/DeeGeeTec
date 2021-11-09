@@ -11,7 +11,7 @@ import java.util.List;
  * This is the controller that handles everything that has to do with the order.
  *
  * @author Sven, Dimitrios, Arman
- * @version 1.0
+ * @version 2.0
  */
 public class OrderHandler {
     /**

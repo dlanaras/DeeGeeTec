@@ -11,7 +11,7 @@ import java.util.List;
  * This Controller handles everything that has to do with the Shopping Cart
  *
  * @author Sven, Dimitrios, Arman
- * @version 1.0
+ * @version 2.0
  */
 public class CartHandler {
 
