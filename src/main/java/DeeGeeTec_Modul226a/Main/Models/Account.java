@@ -28,6 +28,9 @@ public class Account {
         this.email = email;
     }
 
+    /**
+     * This is the String that contains the Email of the account
+     */
     private String email;
 
     /**
