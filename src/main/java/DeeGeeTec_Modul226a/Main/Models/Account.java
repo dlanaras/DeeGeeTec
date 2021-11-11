@@ -19,9 +19,21 @@ public class Account {
      * This Contains the Location connected to a account from the DB
      */
     private Location location;
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    private String email;
+
     /**
      * This Int contains the accountID
      */
+
     private int accountId;
 
     public Account(String username, String password, Location location, String phoneNumber) {
@@ -31,9 +43,18 @@ public class Account {
         this.location = location;
     }
 
+    public Account(String username, String password, Location location, String phoneNumber, String email) {
+        this.username = username;
+        this.password = this.HashPassword(password);
+        this.phoneNumber = phoneNumber;
+        this.location = location;
+        this.email = email;
+    }
+
     public Account(String username, String password, Location location) { //phonenumber isn't necessary
         this(username, password, location, null);
     }
+
 
     public Account(String username, String hashedPassword) {
 

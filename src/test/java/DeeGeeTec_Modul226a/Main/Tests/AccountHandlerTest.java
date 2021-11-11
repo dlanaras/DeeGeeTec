@@ -45,7 +45,7 @@ public class AccountHandlerTest {
      */
     @Test
     public void UserCanRegister() throws URISyntaxException {
-        assertEquals(HttpStatus.CREATED, accountHandler.Register("yo", "coolPassword", "012389012", new Location()).getStatusCode());
+        assertEquals(HttpStatus.CREATED, accountHandler.Register("yo", "coolPassword", "012389012", new Location(), "corsten@andreas.ch").getStatusCode());
         //assertEquals(accountHandler.Register("Joe", "HashedPassword", ...), HttpURLConnection.HTTP_CREATED)
     }
 

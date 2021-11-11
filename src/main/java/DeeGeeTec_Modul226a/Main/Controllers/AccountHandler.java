@@ -64,7 +64,7 @@ public class AccountHandler {
      * @param phoneNumber The PhoneNumber of the account
      * @param location The Location of the account
      */
-    public ResponseEntity<Account> Register(String username, String password, String phoneNumber, Location location) throws URISyntaxException {
+    public ResponseEntity<Account> Register(String username, String password, String phoneNumber, Location location, String email) throws URISyntaxException {
 
             Account account = getCurrentUser();
 
@@ -74,14 +74,14 @@ public class AccountHandler {
                 boolean locationAlreadyExists = possiblyExistingLocation != null;
 
                 if(locationAlreadyExists) {
-                    account = new Account(username, password, possiblyExistingLocation, phoneNumber);
+                    account = new Account(username, password, possiblyExistingLocation, phoneNumber, email);
                     return new ResponseEntity<Account>(account, HttpStatus.CREATED);
                    //INSERT VALUES(password, username, email, phoneNumber, possiblyExistingLocation.GetLocationId()) INTO 'Account'
                 } else {
                     //INSERT VALUES(location.getStreet, location.getPlz, location.getStreetNum, location.getPlace)
                     //TODO: values of location should probably get validated around here
                     location = new Location();
-                    account = new Account(username, password, location, phoneNumber);
+                    account = new Account(username, password, location, phoneNumber, email);
                     //INSERT VALUES(password, username, email, phoneNumber, newLocation.getLocationId) INTO 'Account'
                     return new ResponseEntity<Account>(account, HttpStatus.CREATED);
                 }
