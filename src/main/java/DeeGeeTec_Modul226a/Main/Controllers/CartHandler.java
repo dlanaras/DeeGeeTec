@@ -15,6 +15,8 @@ import java.util.List;
  */
 public class CartHandler {
 
+    private final WishlistHandler wishlistHandler = new WishlistHandler();
+
     /**
      * @param item The Item that has to be added to the cart
      */
@@ -24,17 +26,20 @@ public class CartHandler {
     }
 
     /**
-     * @param itemId ID of the Item to be removed
+     * @param item Item to be removed
      */
-    public void RemoveItemFromCart(int itemId) {
+    public void RemoveItemFromCart(Item item) {
+        Cart userCart = this.GetCart();
+        userCart.removeItem(item);
     }
 
-    /**
-     * @param wishlist A list of the items which are in the wishlist
-     *
-     */
-    public void AddItemsFromWishlist(List<Item> wishlist) {
 
+    /**
+     * Imports data from wishlist into current cart
+     */
+    public void AddItemsFromWishlist() {
+        Cart userCart = this.GetCart();
+        userCart.setItems(wishlistHandler.GetCurrentWishlist().getItems());
     }
 
     /**

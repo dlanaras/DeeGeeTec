@@ -14,6 +14,10 @@ public class Wishlist {
 
     public int getWishlistId() { return this.wishlistId; }
 
+    public void addWishlistItems(Item item) { this.wishlistItems.add(item);}
+
+    public void removeItem(Item item) { this.wishlistItems.remove(item); }
+
     public List<Item> getItems() {
         return wishlistItems;
     }

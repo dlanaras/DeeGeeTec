@@ -14,26 +14,25 @@ public class WishlistHandler {
      * @param item the item to be added to the wishlist
      */
     public void AddItemToWishlist(Item item) {
-        Account currentUser = AccountHandler.getCurrentUser();
-        //get wishlist of current account
-        //wishlist.AddItem(item)
+        Wishlist currentWishList = this.GetCurrentWishlist();
+        currentWishList.addWishlistItems(item);
+
     }
 
     /**
-     * @param itemId ID of the item to be removed from the wishlist
+     * @param item to be removed from the wishlist
      */
-    public void RemoveItemFromWishlist(int itemId) {
-        Account currentUser = AccountHandler.getCurrentUser();
-        //Get current account wishlist
-        //DELETE * FROM 'Wishlist' where 'Wishlist'.'itemFK' = itemId;
+    public void RemoveItemFromWishlist(Item item) {
+        Wishlist currentWishList = this.GetCurrentWishlist();
+        currentWishList.removeItem(item);
     }
 
     /**
      * @return returns the wishlist of a user
      */
     public Wishlist GetCurrentWishlist() {
-        //return wishlist of current user
         Account currentUser = AccountHandler.getCurrentUser();
+        //would return the wishlist of the current user instead of a new one
         return new Wishlist();
     }
 }

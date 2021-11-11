@@ -23,19 +23,16 @@ public class AccountHandler {
      * @param password The Password of the account
      */
     public ResponseEntity<Account> Login(String username, String password) {
-        //search through db for username
-        //don't know how dbs are used in java so im writing an example of how it would be in SQL
 
+        //TODO: use if statement below on working frontend
         /*if(AccountHandler.getCurrentUser() != null) {
             return ResponseEntity.ok().build();
             // continue to web frontend
         } else {
-        TODO: should be readded at the next IT-Module (226b) when it actually returns real data
          */
 
             try {
-                Account accountToBeLoggedIn = new Account(username, password, new Location());
-                /*SELECT * FROM 'Account' WHERE 'Account'.'username' = username;*/
+                Account accountToBeLoggedIn = new Account(username, password);
 
                 //Temporarily here until program actually has a db connection
                 boolean userNameExists = accountToBeLoggedIn.getUsername().equals("Joe");
@@ -69,23 +66,20 @@ public class AccountHandler {
      */
     public ResponseEntity<Account> Register(String username, String password, String phoneNumber, Location location) throws URISyntaxException {
 
-            Account account = null; /*SELECT * FROM 'Account' WHERE 'Account'.'username' = username;*/
+            Account account = getCurrentUser();
 
             if(account == null) {
-                Location possiblyExistingLocation = new Location();/*SELECT * FROM 'Location'
-                WHERE 'street' = location.getStreet()
-                AND 'plz' = location.getPlz()
-                AND 'streetNum' = location.getStreetNum()
-                AND 'place' = location.getPlace();*/
+                Location possiblyExistingLocation = new Location();// would check if the location already exists by using an SQL query
 
                 boolean locationAlreadyExists = possiblyExistingLocation != null;
 
                 if(locationAlreadyExists) {
-                    account = new Account(username, password, location, phoneNumber);
+                    account = new Account(username, password, possiblyExistingLocation, phoneNumber);
                     return new ResponseEntity<Account>(account, HttpStatus.CREATED);
                    //INSERT VALUES(password, username, email, phoneNumber, possiblyExistingLocation.GetLocationId()) INTO 'Account'
                 } else {
                     //INSERT VALUES(location.getStreet, location.getPlz, location.getStreetNum, location.getPlace)
+                    //TODO: values of location should probably get validated around here
                     location = new Location();
                     account = new Account(username, password, location, phoneNumber);
                     //INSERT VALUES(password, username, email, phoneNumber, newLocation.getLocationId) INTO 'Account'
@@ -133,6 +127,7 @@ public class AccountHandler {
         }
         else
         {
+            //should probably return null or something else that can be checked for without catching exceptions
             throw new InputMismatchException(); //only temporary for testing purposes
         }
 
