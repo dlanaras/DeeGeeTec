@@ -2,6 +2,9 @@
 # Created by https://www.toptal.com/developers/gitignore/api/node,angular,java
 # Edit at https://www.toptal.com/developers/gitignore?templates=node,angular,java
 
+#DB configuration
+Configuration.json
+
 ### Angular ###
 ## Angular ##
 # compiled output
