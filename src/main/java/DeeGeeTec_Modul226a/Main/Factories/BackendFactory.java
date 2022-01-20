@@ -1,5 +1,7 @@
 package DeeGeeTec_Modul226a.Main.Factories;
 
+import DeeGeeTec_Modul226a.HibernationType;
+import DeeGeeTec_Modul226a.Dbconfig.Configuration;
 import DeeGeeTec_Modul226a.Main.Models.Account;
 import DeeGeeTec_Modul226a.Main.Models.Cart;
 import DeeGeeTec_Modul226a.Main.Models.Item;
@@ -35,7 +37,12 @@ public abstract class BackendFactory {
     Wishlist createWishlist() {
 
     }
+
     public static BackendFactory getFactory() {
-        if()
+        if(Configuration.hibernation == HibernationType.inMemory) {
+            return BackendInMemoryFactory.getFactory();
+        } else if (Configuration.hibernation == HibernationType.jdbc) {
+            return BackendJdbcFactory.getFactory();
+        }
     }
 }

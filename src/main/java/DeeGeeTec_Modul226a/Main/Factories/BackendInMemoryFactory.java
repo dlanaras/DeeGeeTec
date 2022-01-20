@@ -51,9 +51,5 @@ public class BackendInMemoryFactory implements BackendFactory {
 
     }
 
-    @Override
-    public BackendFactory getFactory() {
-        return this;
-    }
     
 }
