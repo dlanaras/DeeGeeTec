@@ -1,48 +1,56 @@
 package DeeGeeTec_Modul226a.Main.Factories;
 
-public class BackendJdbcFactory implements BackendFactory {
-    @Override
+import DeeGeeTec_Modul226a.Main.Models.Account;
+import DeeGeeTec_Modul226a.Main.Models.Cart;
+import DeeGeeTec_Modul226a.Main.Models.Item;
+import DeeGeeTec_Modul226a.Main.Models.Location;
+import DeeGeeTec_Modul226a.Main.Models.Order;
+import DeeGeeTec_Modul226a.Main.Models.OrderDetails;
+import DeeGeeTec_Modul226a.Main.Models.ShipmentDetails;
+import DeeGeeTec_Modul226a.Main.Models.Wishlist;
+
+public class BackendJdbcFactory extends BackendFactory {
+    private static final BackendFactory factory=new BackendJdbcFactory();
+    public static BackendFactory getFactory() {
+        return factory;
+    }
+
+
     public Account createAccount() {
-
+        return new Account();
     }
 
-    @Override
     public Cart createCart() {
-
+        return new Cart();
     }
 
-    @Override
+
     public Item createItem() {
-
+        return new Item();
     }
 
-    @Override
+
     public Location createLocation() {
-
+        return new Location();
     }
 
-    @Override
+
     public Order createOrder() {
-
+        return new Order();
     }
 
-    @Override
+
     public OrderDetails createOrderDetails() {
-
+        return new OrderDetails();
     }
 
-    @Override
+
     public ShipmentDetails creaShipmentDetails() {
-
+        return new ShipmentDetails();
     }
 
-    @Override
+
     public Wishlist createWishlist() {
-
-    }
-
-    @Override
-    public BackendFactory getFactory() {
-        return this;
+        return new Wishlist();
     }
 }

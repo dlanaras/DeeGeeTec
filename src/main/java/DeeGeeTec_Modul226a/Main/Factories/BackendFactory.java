@@ -12,31 +12,16 @@ import DeeGeeTec_Modul226a.Main.Models.ShipmentDetails;
 import DeeGeeTec_Modul226a.Main.Models.Wishlist;
 
 public abstract class BackendFactory {
-    Account createAccount() {
 
-    }
+    public abstract Account createAccount();
+    public abstract Cart createCart();
+    public abstract Item createItem();
+    public abstract Location createLocation();
+    public abstract Order createOrder();
+    public abstract OrderDetails createOrderDetails();
+    public abstract ShipmentDetails creaShipmentDetails(); 
+    public abstract Wishlist createWishlist();
 
-    Cart createCart() {
-
-    }
-    Item createItem() {
-
-    }
-    Location createLocation() {
-
-    }
-    Order createOrder() {
-
-    }
-    OrderDetails createOrderDetails() {
-
-    }
-    ShipmentDetails creaShipmentDetails() {
-
-    }
-    Wishlist createWishlist() {
-
-    }
 
     public static BackendFactory getFactory() {
         if(Configuration.hibernation == HibernationType.inMemory) {
@@ -44,5 +29,6 @@ public abstract class BackendFactory {
         } else if (Configuration.hibernation == HibernationType.jdbc) {
             return BackendJdbcFactory.getFactory();
         }
+        throw new RuntimeException(Configuration.hibernation + " not implemented yet");
     }
 }

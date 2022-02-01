@@ -9,47 +9,50 @@ import DeeGeeTec_Modul226a.Main.Models.OrderDetails;
 import DeeGeeTec_Modul226a.Main.Models.ShipmentDetails;
 import DeeGeeTec_Modul226a.Main.Models.Wishlist;
 
-public class BackendInMemoryFactory implements BackendFactory {
+public class BackendInMemoryFactory extends BackendFactory {
 
-    @Override
+    private static final BackendFactory factory = new BackendInMemoryFactory();
+    public static BackendFactory getFactory() {
+        return factory;
+    }
+
+
     public Account createAccount() {
-
+        return new Account();
     }
 
-    @Override
+
     public Cart createCart() {
-
+        return new Cart();
     }
 
-    @Override
+
     public Item createItem() {
-
+        return new Item();
     }
 
-    @Override
+
     public Location createLocation() {
-
+        return new Location();
     }
 
-    @Override
+
     public Order createOrder() {
-
+        return new Order();
     }
 
-    @Override
+
     public OrderDetails createOrderDetails() {
-
+        return new OrderDetails();
     }
 
-    @Override
+
     public ShipmentDetails creaShipmentDetails() {
-
+        return new ShipmentDetails();
     }
 
-    @Override
     public Wishlist createWishlist() {
-
+        return new Wishlist();
     }
-
     
 }

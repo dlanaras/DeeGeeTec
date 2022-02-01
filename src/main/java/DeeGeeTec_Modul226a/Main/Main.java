@@ -1,5 +1,9 @@
 package DeeGeeTec_Modul226a.Main;
 
+import DeeGeeTec_Modul226a.Main.Controllers.AccountHandler;
+import DeeGeeTec_Modul226a.Main.Factories.BackendFactory;
+import DeeGeeTec_Modul226a.Main.Models.Account;
+
 /**
  * This is the main class of our project, it does nothing yet but will maybe have a future use.
  *
@@ -9,8 +13,6 @@ package DeeGeeTec_Modul226a.Main;
 
 public class Main {
     public static void main(String[] args) {
-        /*
-        Does nothing yet
-         */
+        BackendFactory testFactory = BackendFactory.getFactory();
     }
 }
