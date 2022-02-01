@@ -2,7 +2,7 @@ package DeeGeeTec_Modul226a.Main.Models.AbstractModels;
 
 public abstract class Address {
 
-    public abstract int getLocationId();
+    public abstract int getAddressId();
 
     public abstract String getStreet();
 

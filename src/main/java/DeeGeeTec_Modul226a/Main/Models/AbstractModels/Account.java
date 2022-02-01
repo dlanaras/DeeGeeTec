@@ -27,6 +27,14 @@ public abstract class Account {
 
     public abstract boolean CheckPassword(String userInputedPassword);
 
+    public abstract String getFirstName();
+
+    public abstract void setFirstName(String firstName);
+
+    public abstract String getLastName();
+
+    public abstract void setLastName(String lastName);
+
     public abstract void delete();
 
 }

@@ -19,11 +19,12 @@ public class AddressInMemory extends Address {
         this.plz = plz;
         this.streetNum = streetNum;
         this.place = place;
+        this.locationId = 1; //TODO: change this only for testing perpuses used here
         locations.add(this);
     }
 
     @Override
-    public int getLocationId() {
+    public int getAddressId() {
         return this.locationId;
     }
 

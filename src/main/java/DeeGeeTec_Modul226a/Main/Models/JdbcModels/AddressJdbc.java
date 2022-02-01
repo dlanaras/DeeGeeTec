@@ -22,7 +22,7 @@ public class AddressJdbc extends Address {
     /**
      * This int contains the ID of a location
      */
-    private int locationId;
+    private int addressId;
 
     public AddressJdbc(String street, String plz, String streetNum, String place) {
         this.street = street;
@@ -34,7 +34,7 @@ public class AddressJdbc extends Address {
     }
 
     @Override
-    public int getLocationId() { return this.locationId; }
+    public int getAddressId() { return this.addressId; }
 
     @Override
     public String getStreet() {

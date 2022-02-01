@@ -15,11 +15,13 @@ public class AccountInMemory extends Account {
     private String phoneNumber;
     private Address location;
     private String email;
-    private int accountId; //TODO: consider adding this into a hashmap 
+    private int accountId;
+    private String firstName;
+    private String lastName;
 
     
 
-    public AccountInMemory(String username, String password, Address location, String phoneNumber) {
+    public AccountInMemory(String username, String password, Address location, String phoneNumber, String firstName, String lastName) {
         this.username = username;
         this.password = this.HashPassword(password);
         this.phoneNumber = phoneNumber;
@@ -27,19 +29,22 @@ public class AccountInMemory extends Account {
         accounts.add(this);
     }
 
-
-    public AccountInMemory(String username, String password, Address location, String phoneNumber, String email) {
+    public AccountInMemory(String username, String password, Address location, String phoneNumber, String email, String firstName, String lastName) {
         this.username = username;
         this.password = this.HashPassword(password);
         this.phoneNumber = phoneNumber;
         this.location = location;
         this.email = email;
+        this.firstName = firstName;
+        this.lastName = lastName;
         accounts.add(this);
     }
 
-    public AccountInMemory(String username, String password, Address location) { //phonenumber isn't necessary
-        this(username, password, location, null);
+    public AccountInMemory(String username, String password, Address location, String firstName, String lastName) { //phonenumber isn't necessary
+        this(username, password, location, null, firstName, lastName);
     }
+
+    
 
     @Override
     public void setPassword(String password) {
@@ -104,5 +109,25 @@ public class AccountInMemory extends Account {
     @Override
     public void delete() {
         accounts.remove(this);
+    }
+
+    @Override
+    public String getFirstName() {
+        return this.firstName;
+    }
+
+    @Override
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    @Override
+    public String getLastName() {
+        return this.lastName;
+    }
+
+    @Override
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 }
