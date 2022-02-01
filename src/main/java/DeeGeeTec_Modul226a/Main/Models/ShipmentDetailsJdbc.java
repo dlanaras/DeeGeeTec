@@ -10,9 +10,9 @@ public class ShipmentDetailsJdbc extends ShipmentDetails {
      */
     private int shipmentDetailsId;
 
-    private Location location;
+    private Address location;
     
-    public ShipmentDetailsJdbc(String shipmentDetails, Location location) {
+    public ShipmentDetailsJdbc(String shipmentDetails, Address location) {
         this.shipmentDetails = shipmentDetails;
         this.location = location;
 
@@ -25,12 +25,12 @@ public class ShipmentDetailsJdbc extends ShipmentDetails {
     }
 
     @Override
-    public Location getLocation() {
+    public Address getLocation() {
         return location;
     }
 
     @Override
-    public void setLocation(Location location) {
+    public void setLocation(Address location) {
         this.location = location;
     }
 

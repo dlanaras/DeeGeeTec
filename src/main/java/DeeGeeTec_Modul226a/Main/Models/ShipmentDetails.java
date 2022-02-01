@@ -14,18 +14,18 @@ public abstract class ShipmentDetails {
         this.shipmentDetailsId = shipmentDetailsId;
     }
 
-    public Location getLocation() {
+    public Address getLocation() {
         return location;
     }
 
-    public void setLocation(Location location) {
+    public void setLocation(Address location) {
         this.location = location;
     }
 
     /**
      * This contains the location of the shipmentdetails
      */
-    private Location location;
+    private Address location;
     public int getShipmentDetailsId() { return this.shipmentDetailsId; }
 
     public String getShipmentDetails() {

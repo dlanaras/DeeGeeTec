@@ -5,7 +5,7 @@ import DeeGeeTec_Modul226a.Dbconfig.Configuration;
 import DeeGeeTec_Modul226a.Main.Models.Account;
 import DeeGeeTec_Modul226a.Main.Models.Cart;
 import DeeGeeTec_Modul226a.Main.Models.Item;
-import DeeGeeTec_Modul226a.Main.Models.Location;
+import DeeGeeTec_Modul226a.Main.Models.Address;
 import DeeGeeTec_Modul226a.Main.Models.Order;
 import DeeGeeTec_Modul226a.Main.Models.OrderDetails;
 import DeeGeeTec_Modul226a.Main.Models.ShipmentDetails;
@@ -16,7 +16,7 @@ public abstract class BackendFactory {
     public abstract Account createAccount();
     public abstract Cart createCart();
     public abstract Item createItem();
-    public abstract Location createLocation();
+    public abstract Address createLocation();
     public abstract Order createOrder();
     public abstract OrderDetails createOrderDetails();
     public abstract ShipmentDetails creaShipmentDetails(); 

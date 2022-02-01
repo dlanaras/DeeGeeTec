@@ -1,6 +1,6 @@
 package DeeGeeTec_Modul226a.Main.Models;
 
-public class LocationJdbc extends Location {
+public class AddressJdbc extends Address {
     /**
      * This String contains the street of a location
      */
@@ -22,7 +22,7 @@ public class LocationJdbc extends Location {
      */
     private int locationId;
 
-    public LocationJdbc(String street, String plz, String streetNum, String place) {
+    public AddressJdbc(String street, String plz, String streetNum, String place) {
         this.street = street;
         this.plz = plz;
         this.streetNum = streetNum;

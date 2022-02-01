@@ -13,7 +13,7 @@ public class BackendInMemoryFactory extends BackendFactory {
 
 
     public Account createAccount() {
-        return new AccountInMemory("", "", new LocationInMemory("", "", "", ""));
+        return new AccountInMemory("", "", new AddressInMemory("", "", "", ""));
     }
 
 
@@ -27,13 +27,13 @@ public class BackendInMemoryFactory extends BackendFactory {
     }
 
 
-    public Location createLocation() {
-        return new LocationInMemory("", "", "", "");
+    public Address createLocation() {
+        return new AddressInMemory("", "", "", "");
     }
 
 
     public Order createOrder() {
-        return new OrderInMemory(new AccountInMemory("", "", new LocationInMemory("", "", "", "")), new ArrayList<>(), new ShipmentDetailsInMemory("", new LocationInMemory("","","","")));
+        return new OrderInMemory(new AccountInMemory("", "", new AddressInMemory("", "", "", "")), new ArrayList<>(), new ShipmentDetailsInMemory("", new AddressInMemory("","","","")));
     }
 
 
@@ -43,7 +43,7 @@ public class BackendInMemoryFactory extends BackendFactory {
 
 
     public ShipmentDetails creaShipmentDetails() {
-        return new ShipmentDetailsInMemory("", new LocationInMemory("","","",""));
+        return new ShipmentDetailsInMemory("", new AddressInMemory("","","",""));
     }
 
     public Wishlist createWishlist() {

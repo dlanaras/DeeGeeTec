@@ -21,7 +21,7 @@ public class AccountJdbc extends Account {
     /**
      * This Contains the Location connected to a account from the DB
      */
-    private Location location;
+    private Address location;
 
     @Override
     public String getEmail() {
@@ -44,7 +44,7 @@ public class AccountJdbc extends Account {
 
     private int accountId;
 
-    public AccountJdbc(String username, String password, Location location, String phoneNumber) {
+    public AccountJdbc(String username, String password, Address location, String phoneNumber) {
         this.username = username;
         this.password = this.HashPassword(password);
         this.phoneNumber = phoneNumber;
@@ -53,7 +53,7 @@ public class AccountJdbc extends Account {
         //... add it to db
     }
 
-    public AccountJdbc(String username, String password, Location location, String phoneNumber, String email) {
+    public AccountJdbc(String username, String password, Address location, String phoneNumber, String email) {
         this.username = username;
         this.password = this.HashPassword(password);
         this.phoneNumber = phoneNumber;
@@ -62,7 +62,7 @@ public class AccountJdbc extends Account {
         //... add it to db
     }
 
-    public AccountJdbc(String username, String password, Location location) { //phonenumber isn't necessary
+    public AccountJdbc(String username, String password, Address location) { //phonenumber isn't necessary
         this(username, password, location, null);
         //... add it to db
     }
@@ -98,12 +98,12 @@ public class AccountJdbc extends Account {
     }
 
     @Override
-    public Location getLocation() {
+    public Address getLocation() {
         return location;
     }
 
     @Override
-    public void setLocation(Location location) {
+    public void setLocation(Address location) {
         this.location = location;
     }
 

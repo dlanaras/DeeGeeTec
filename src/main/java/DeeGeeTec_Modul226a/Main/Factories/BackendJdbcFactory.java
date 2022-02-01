@@ -12,12 +12,13 @@ public class BackendJdbcFactory extends BackendFactory {
 
 
     public Account createAccount() {
-        return new AccountJdbc("", "", new LocationJdbc("", "", "", ""));
+        return new AccountJdbc("", "", new AddressJdbc("", "", "", ""));
     }
 
 
     public Cart createCart() {
-        return new CartJdbc(new ArrayList<>());
+        // Always inMemory because DB doesnt have a table for this, because this should be only temporarely saved
+        return new CartInMemory(new ArrayList<>());
     }
 
 
@@ -26,13 +27,13 @@ public class BackendJdbcFactory extends BackendFactory {
     }
 
 
-    public Location createLocation() {
-        return new LocationJdbc("", "", "", "");
+    public Address createLocation() {
+        return new AddressJdbc("", "", "", "");
     }
 
 
     public Order createOrder() {
-        return new OrderJdbc(new AccountJdbc("", "", new LocationJdbc("", "", "", "")), new ArrayList<>(), new ShipmentDetailsJdbc("", new LocationJdbc("","","","")));
+        return new OrderJdbc(new AccountJdbc("", "", new AddressJdbc("", "", "", "")), new ArrayList<>(), new ShipmentDetailsJdbc("", new AddressJdbc("","","","")));
     }
 
 
@@ -42,7 +43,7 @@ public class BackendJdbcFactory extends BackendFactory {
 
 
     public ShipmentDetails creaShipmentDetails() {
-        return new ShipmentDetailsJdbc("", new LocationJdbc("","","",""));
+        return new ShipmentDetailsJdbc("", new AddressJdbc("","","",""));
     }
 
     public Wishlist createWishlist() {

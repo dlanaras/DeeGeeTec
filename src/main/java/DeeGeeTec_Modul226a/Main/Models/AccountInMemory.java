@@ -10,13 +10,13 @@ public class AccountInMemory extends Account {
     private String password;
     private String username;
     private String phoneNumber;
-    private Location location;
+    private Address location;
     private String email;
     private int accountId; //TODO: consider adding this into a hashmap 
 
     
 
-    public AccountInMemory(String username, String password, Location location, String phoneNumber) {
+    public AccountInMemory(String username, String password, Address location, String phoneNumber) {
         this.username = username;
         this.password = this.HashPassword(password);
         this.phoneNumber = phoneNumber;
@@ -25,7 +25,7 @@ public class AccountInMemory extends Account {
     }
 
 
-    public AccountInMemory(String username, String password, Location location, String phoneNumber, String email) {
+    public AccountInMemory(String username, String password, Address location, String phoneNumber, String email) {
         this.username = username;
         this.password = this.HashPassword(password);
         this.phoneNumber = phoneNumber;
@@ -34,7 +34,7 @@ public class AccountInMemory extends Account {
         accounts.add(this);
     }
 
-    public AccountInMemory(String username, String password, Location location) { //phonenumber isn't necessary
+    public AccountInMemory(String username, String password, Address location) { //phonenumber isn't necessary
         this(username, password, location, null);
     }
 
@@ -69,12 +69,12 @@ public class AccountInMemory extends Account {
     }
 
     @Override
-    public Location getLocation() {
+    public Address getLocation() {
         return location;
     }
 
     @Override
-    public void setLocation(Location location) {
+    public void setLocation(Address location) {
         this.location = location;
     }
 

@@ -2,9 +2,9 @@ package DeeGeeTec_Modul226a.Main.Models;
 
 import java.util.ArrayList;
 
-public class LocationInMemory extends Location {
+public class AddressInMemory extends Address {
 
-    private static final ArrayList<LocationInMemory> locations = new ArrayList<>();
+    private static final ArrayList<AddressInMemory> locations = new ArrayList<>();
 
     private String street;
     private String plz;
@@ -12,7 +12,7 @@ public class LocationInMemory extends Location {
     private String place;
     private int locationId;
 
-    public LocationInMemory(String street, String plz, String streetNum, String place) {
+    public AddressInMemory(String street, String plz, String streetNum, String place) {
         this.street = street;
         this.plz = plz;
         this.streetNum = streetNum;

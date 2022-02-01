@@ -7,9 +7,9 @@ public class ShipmentDetailsInMemory extends ShipmentDetails {
 
     private String shipmentDetails;
     private int shipmentDetailsId;
-    private Location location;
+    private Address location;
 
-    public ShipmentDetailsInMemory(String shipmentDetails, Location location) {
+    public ShipmentDetailsInMemory(String shipmentDetails, Address location) {
         this.shipmentDetails = shipmentDetails;
         this.location = location;
 
@@ -22,12 +22,12 @@ public class ShipmentDetailsInMemory extends ShipmentDetails {
     }
 
     @Override
-    public Location getLocation() {
+    public Address getLocation() {
         return location;
     }
 
     @Override
-    public void setLocation(Location location) {
+    public void setLocation(Address location) {
         this.location = location;
     }
     
