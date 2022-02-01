@@ -1,7 +1,7 @@
 package DeeGeeTec_Modul226a.Main;
 
 import DeeGeeTec_Modul226a.Dbconfig.JdbcDb;
-
+import DeeGeeTec_Modul226a.Main.Controllers.AccountHandler;
 import DeeGeeTec_Modul226a.Main.Factories.BackendFactory;
 import DeeGeeTec_Modul226a.Main.Models.Account;
 import org.json.simple.parser.ParseException;
@@ -18,8 +18,9 @@ import java.sql.SQLException;
 
 public class Main {
     public static void main(String[] args) throws SQLException, ParseException, IOException, ClassNotFoundException {
-        BackendFactory testFactory = BackendFactory.getFactory();
         JdbcDb.getConnection();
+        BackendFactory testFactory = BackendFactory.getFactory();
+
         System.out.println("""
         1. 
         """);
