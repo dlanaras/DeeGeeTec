@@ -1,59 +1,25 @@
 package DeeGeeTec_Modul226a.Main.Models;
 
-public class Location {
-    /**
-     * This String contains the street of a location
-     */
-    private String street;
-    /**
-     * This String contains the PLZ of a location
-     */
-    private String plz;
-    /**
-     * This String contains the streetnumber of a location
-     */
-    private String streetNum;
-    /**
-     * This String contains the place of a location
-     */
-    private String place;
-    /**
-     * This int contains the ID of a location
-     */
-    private int locationId;
+public abstract class Location {
 
-    public int getLocationId() { return this.locationId; }
+    public abstract int getLocationId();
 
-    public String getStreet() {
-        return street;
-    }
+    public abstract String getStreet();
 
-    public void setStreet(String street) {
-        this.street = street;
-    }
+    public abstract void setStreet(String street);
 
-    public String getPlz() {
-        return plz;
-    }
+    public abstract String getPlz();
 
-    public void setPlz(String plz) {
-        this.plz = plz;
-    }
+    public abstract void setPlz(String plz);
 
-    public String getStreetNum() {
-        return streetNum;
-    }
+    public abstract String getStreetNum();
 
-    public void setStreetNum(String streetNum) {
-        this.streetNum = streetNum;
-    }
+    public abstract void setStreetNum(String streetNum);
 
-    public String getPlace() {
-        return place;
-    }
+    public abstract String getPlace();
 
-    public void setPlace(String place) {
-        this.place = place;
-    }
+    public abstract void setPlace(String place);
+
+    public abstract void delete();
 
 }

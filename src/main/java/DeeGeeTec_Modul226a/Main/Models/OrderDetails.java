@@ -2,36 +2,17 @@ package DeeGeeTec_Modul226a.Main.Models;
 
 import java.util.List;
 
-public class OrderDetails {
-    /**
-     * This contains the ID of the orderdetails
-     */
-    private int orderDetailsId;
-    /**
-     * This String contains the orderDetails
-     */
-    private String orderDetails;
-    /**
-     * This List contains all items of the orderdetails
-     */
-    private List<Item> items;
+public abstract class OrderDetails {
 
-    public int getOrderDetailsId() { return this.orderDetailsId; }
+    public abstract int getOrderDetailsId();
 
-    public String getOrderDetails() {
-        return orderDetails;
-    }
+    public abstract String getOrderDetails();
 
-    public void setOrderDetails(String orderDetails) {
-        this.orderDetails = orderDetails;
-    }
+    public abstract void setOrderDetails(String orderDetails);
 
-    public List<Item> getItems() {
-        return items;
-    }
+    public abstract List<Item> getItems();
 
-    public void setItems(List<Item> items) {
-        this.items = items;
-    }
+    public abstract void setItems(List<Item> items);
 
+    public abstract void delete();
 }

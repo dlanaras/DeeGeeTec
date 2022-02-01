@@ -1,34 +1,15 @@
 package DeeGeeTec_Modul226a.Main.Models;
 
-public class Item {
-    /**
-     * This string contains the Name of the Item
-     */
-    private String itemName;
-    /**
-     * This float contains the Price of an Item
-     */
-    private float price;
-    /**
-     * This Int contains the ID of the Item
-     */
-    private int itemId;
+public abstract class Item {
+    public abstract int getItemId();
 
-    public int getItemId() { return this.itemId; }
+    public abstract float getPrice();
 
-    public float getPrice() {
-        return price;
-    }
+    public abstract void setPrice(float price);
 
-    public void setPrice(float price) {
-        this.price = price;
-    }
+    public abstract String getItemName();
 
-    public String getItemName() {
-        return itemName;
-    }
+    public abstract void setItemName(String itemName);
 
-    public void setItemName(String itemName) {
-        this.itemName = itemName;
-    }
+    public abstract void delte();
 }

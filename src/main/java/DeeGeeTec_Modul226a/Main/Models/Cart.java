@@ -2,30 +2,18 @@ package DeeGeeTec_Modul226a.Main.Models;
 
 import java.util.List;
 
-public class Cart {
-    /**
-     * This int contains the Id of the Cart
-     */
-    private int cartId;
-    /**
-     * This is a List with all the Items in the shoppingcart
-     */
-    private List<Item> cartItems;
+public abstract class Cart {
 
-    public int getCartId() { return this.cartId; }
+    public abstract int getCartId();
 
-    public List<Item> getItems() {
-        return this.cartItems;
-    }
+    public abstract List<Item> getItems();
 
-    public void setItems(List<Item> items) {
-        this.cartItems = items;
-    }
+    public abstract void setItems(List<Item> items);
     
-    public void addItem(Item item) {
-        this.cartItems.add(item);
-    }
+    public abstract void addItem(Item item);
 
-    public void removeItem(Item item) {this.cartItems.remove(item);}
+    public abstract void removeItem(Item item);
+
+    public abstract void delete();
 
 }

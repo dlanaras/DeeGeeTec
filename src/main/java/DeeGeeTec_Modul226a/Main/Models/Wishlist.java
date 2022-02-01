@@ -2,28 +2,17 @@ package DeeGeeTec_Modul226a.Main.Models;
 
 import java.util.List;
 
-public class Wishlist {
-    /**
-     * A list of all items in the wishlist
-     */
-    private List<Item> wishlistItems;
-    /**
-     * ID of the wishlist
-     */
-    private int wishlistId;
+public abstract class Wishlist {
+ 
+    public abstract int getWishlistId();
 
-    public int getWishlistId() { return this.wishlistId; }
+    public abstract void addWishlistItems(Item item);
 
-    public void addWishlistItems(Item item) { this.wishlistItems.add(item);}
+    public abstract void removeItem(Item item);
 
-    public void removeItem(Item item) { this.wishlistItems.remove(item); }
+    public abstract List<Item> getItems();
 
-    public List<Item> getItems() {
-        return wishlistItems;
-    }
+    public abstract void setItems(List<Item> items);
 
-    public void setItems(List<Item> items) {
-        this.wishlistItems = items;
-    }
-
+    public abstract void delete();
 }

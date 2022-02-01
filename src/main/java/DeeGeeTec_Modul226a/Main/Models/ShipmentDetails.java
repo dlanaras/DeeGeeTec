@@ -1,6 +1,6 @@
 package DeeGeeTec_Modul226a.Main.Models;
 
-public class ShipmentDetails {
+public abstract class ShipmentDetails {
     /**
      * This String contains the shipmentDetails
      */
@@ -35,4 +35,6 @@ public class ShipmentDetails {
     public void setShipmentDetails(String shipmentDetails) {
         this.shipmentDetails = shipmentDetails;
     }
+
+    public abstract void delete();
 }
