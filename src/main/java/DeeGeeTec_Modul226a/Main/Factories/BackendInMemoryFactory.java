@@ -1,13 +1,8 @@
 package DeeGeeTec_Modul226a.Main.Factories;
 
-import DeeGeeTec_Modul226a.Main.Models.Account;
-import DeeGeeTec_Modul226a.Main.Models.Cart;
-import DeeGeeTec_Modul226a.Main.Models.Item;
-import DeeGeeTec_Modul226a.Main.Models.Location;
-import DeeGeeTec_Modul226a.Main.Models.Order;
-import DeeGeeTec_Modul226a.Main.Models.OrderDetails;
-import DeeGeeTec_Modul226a.Main.Models.ShipmentDetails;
-import DeeGeeTec_Modul226a.Main.Models.Wishlist;
+import DeeGeeTec_Modul226a.Main.Models.*;
+
+import java.util.ArrayList;
 
 public class BackendInMemoryFactory extends BackendFactory {
 
@@ -18,41 +13,41 @@ public class BackendInMemoryFactory extends BackendFactory {
 
 
     public Account createAccount() {
-        return new Account();
+        return new AccountInMemory("", "", new LocationInMemory("", "", "", ""));
     }
 
 
     public Cart createCart() {
-        return new Cart();
+        return new CartInMemory(new ArrayList<>());
     }
 
 
     public Item createItem() {
-        return new Item();
+        return new ItemInMemory("", 2);
     }
 
 
     public Location createLocation() {
-        return new Location();
+        return new LocationInMemory("", "", "", "");
     }
 
 
     public Order createOrder() {
-        return new Order();
+        return new OrderInMemory(new AccountInMemory("", "", new LocationInMemory("", "", "", "")), new ArrayList<>(), new ShipmentDetailsInMemory("", new LocationInMemory("","","","")));
     }
 
 
     public OrderDetails createOrderDetails() {
-        return new OrderDetails();
+        return new OrderDetailsInMemory("", new ArrayList<>());
     }
 
 
     public ShipmentDetails creaShipmentDetails() {
-        return new ShipmentDetails();
+        return new ShipmentDetailsInMemory("", new LocationInMemory("","","",""));
     }
 
     public Wishlist createWishlist() {
-        return new Wishlist();
+        return new WishlistInMemory(new ArrayList<>());
     }
-    
+
 }

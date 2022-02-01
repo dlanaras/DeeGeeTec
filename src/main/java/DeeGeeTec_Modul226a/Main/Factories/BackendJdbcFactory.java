@@ -1,13 +1,8 @@
 package DeeGeeTec_Modul226a.Main.Factories;
 
-import DeeGeeTec_Modul226a.Main.Models.Account;
-import DeeGeeTec_Modul226a.Main.Models.Cart;
-import DeeGeeTec_Modul226a.Main.Models.Item;
-import DeeGeeTec_Modul226a.Main.Models.Location;
-import DeeGeeTec_Modul226a.Main.Models.Order;
-import DeeGeeTec_Modul226a.Main.Models.OrderDetails;
-import DeeGeeTec_Modul226a.Main.Models.ShipmentDetails;
-import DeeGeeTec_Modul226a.Main.Models.Wishlist;
+import DeeGeeTec_Modul226a.Main.Models.*;
+
+import java.util.ArrayList;
 
 public class BackendJdbcFactory extends BackendFactory {
     private static final BackendFactory factory=new BackendJdbcFactory();
@@ -17,40 +12,40 @@ public class BackendJdbcFactory extends BackendFactory {
 
 
     public Account createAccount() {
-        return new Account();
+        return new AccountJdbc("", "", new LocationJdbc("", "", "", ""));
     }
 
+
     public Cart createCart() {
-        return new Cart();
+        return new CartJdbc(new ArrayList<>());
     }
 
 
     public Item createItem() {
-        return new Item();
+        return new ItemJdbc("", 2);
     }
 
 
     public Location createLocation() {
-        return new Location();
+        return new LocationJdbc("", "", "", "");
     }
 
 
     public Order createOrder() {
-        return new Order();
+        return new OrderJdbc(new AccountJdbc("", "", new LocationJdbc("", "", "", "")), new ArrayList<>(), new ShipmentDetailsJdbc("", new LocationJdbc("","","","")));
     }
 
 
     public OrderDetails createOrderDetails() {
-        return new OrderDetails();
+        return new OrderDetailsJdbc("", new ArrayList<>());
     }
 
 
     public ShipmentDetails creaShipmentDetails() {
-        return new ShipmentDetails();
+        return new ShipmentDetailsJdbc("", new LocationJdbc("","","",""));
     }
 
-
     public Wishlist createWishlist() {
-        return new Wishlist();
+        return new WishlistJdbc(new ArrayList<>());
     }
 }
