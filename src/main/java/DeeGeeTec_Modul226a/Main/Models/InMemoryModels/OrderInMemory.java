@@ -1,31 +1,27 @@
-package DeeGeeTec_Modul226a.Main.Models;
+package DeeGeeTec_Modul226a.Main.Models.InMemoryModels;
 
+import java.util.ArrayList;
 import java.util.List;
 
-public class OrderJdbc extends Order {
-    /**
-     * This int contains the ID of the order
-     */
+import DeeGeeTec_Modul226a.Main.Models.AbstractModels.Account;
+import DeeGeeTec_Modul226a.Main.Models.AbstractModels.Order;
+import DeeGeeTec_Modul226a.Main.Models.AbstractModels.OrderDetails;
+import DeeGeeTec_Modul226a.Main.Models.AbstractModels.ShipmentDetails;
+
+public class OrderInMemory extends Order {
+
+    private static final ArrayList<OrderInMemory> orders = new ArrayList<>();
+
     private int orderId;
-    /**
-     * This contains the account of the logged in user
-     */
     private Account account;
-    /**
-     * This contains a list with all ordered items of a order
-     */
     private List<OrderDetails> orderDetails;
-    /**
-     * this contains the shipmentdetails of a order
-     */
     private ShipmentDetails shipmentDetails;
 
-    public OrderJdbc(Account account, List<OrderDetails> orderDetails, ShipmentDetails shipmentDetails) {
+    public OrderInMemory(Account account, List<OrderDetails> orderDetails, ShipmentDetails shipmentDetails) {
         this.account = account;
         this.orderDetails = orderDetails;
         this.shipmentDetails = shipmentDetails;
-
-        //... add it to db
+        orders.add(this);
     }
 
     @Override
@@ -65,8 +61,7 @@ public class OrderJdbc extends Order {
 
     @Override
     public void delete() {
-        
-        
+        orders.remove(this);
     }
 
 }

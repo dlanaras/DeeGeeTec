@@ -1,6 +1,22 @@
 package DeeGeeTec_Modul226a.Main.Factories;
 
 import DeeGeeTec_Modul226a.Main.Models.*;
+import DeeGeeTec_Modul226a.Main.Models.AbstractModels.Account;
+import DeeGeeTec_Modul226a.Main.Models.AbstractModels.Address;
+import DeeGeeTec_Modul226a.Main.Models.AbstractModels.Cart;
+import DeeGeeTec_Modul226a.Main.Models.AbstractModels.Item;
+import DeeGeeTec_Modul226a.Main.Models.AbstractModels.Order;
+import DeeGeeTec_Modul226a.Main.Models.AbstractModels.OrderDetails;
+import DeeGeeTec_Modul226a.Main.Models.AbstractModels.ShipmentDetails;
+import DeeGeeTec_Modul226a.Main.Models.AbstractModels.Wishlist;
+import DeeGeeTec_Modul226a.Main.Models.InMemoryModels.AccountInMemory;
+import DeeGeeTec_Modul226a.Main.Models.InMemoryModels.AddressInMemory;
+import DeeGeeTec_Modul226a.Main.Models.InMemoryModels.CartInMemory;
+import DeeGeeTec_Modul226a.Main.Models.InMemoryModels.ItemInMemory;
+import DeeGeeTec_Modul226a.Main.Models.InMemoryModels.OrderDetailsInMemory;
+import DeeGeeTec_Modul226a.Main.Models.InMemoryModels.OrderInMemory;
+import DeeGeeTec_Modul226a.Main.Models.InMemoryModels.ShipmentDetailsInMemory;
+import DeeGeeTec_Modul226a.Main.Models.InMemoryModels.WishlistInMemory;
 
 import java.util.ArrayList;
 

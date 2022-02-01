@@ -1,22 +1,22 @@
-package DeeGeeTec_Modul226a.Main.Models;
+package DeeGeeTec_Modul226a.Main.Models.InMemoryModels;
 
-public class ShipmentDetailsJdbc extends ShipmentDetails {
-    /**
-     * This String contains the shipmentDetails
-     */
+import java.util.ArrayList;
+
+import DeeGeeTec_Modul226a.Main.Models.AbstractModels.Address;
+import DeeGeeTec_Modul226a.Main.Models.AbstractModels.ShipmentDetails;
+
+public class ShipmentDetailsInMemory extends ShipmentDetails {
+    private static final ArrayList<ShipmentDetails> shipmentDetailsObjects = new ArrayList<>();
+
     private String shipmentDetails;
-    /**
-     * This int contains the shipmentdetails ID
-     */
     private int shipmentDetailsId;
-
     private Address location;
-    
-    public ShipmentDetailsJdbc(String shipmentDetails, Address location) {
+
+    public ShipmentDetailsInMemory(String shipmentDetails, Address location) {
         this.shipmentDetails = shipmentDetails;
         this.location = location;
 
-        //... add this to db
+        shipmentDetailsObjects.add(this);
     }
 
     @Override
@@ -33,11 +33,7 @@ public class ShipmentDetailsJdbc extends ShipmentDetails {
     public void setLocation(Address location) {
         this.location = location;
     }
-
-    /**
-     * This contains the location of the shipmentdetails
-     */
-
+    
     @Override
     public int getShipmentDetailsId() {
         return this.shipmentDetailsId;
@@ -55,7 +51,6 @@ public class ShipmentDetailsJdbc extends ShipmentDetails {
 
     @Override
     public void delete() {
-        // TODO Auto-generated method stub
-        
+        shipmentDetailsObjects.remove(this);        
     }
 }

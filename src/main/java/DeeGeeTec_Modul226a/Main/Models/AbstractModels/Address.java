@@ -1,4 +1,4 @@
-package DeeGeeTec_Modul226a.Main.Models;
+package DeeGeeTec_Modul226a.Main.Models.AbstractModels;
 
 public abstract class Address {
 

@@ -1,6 +1,9 @@
-package DeeGeeTec_Modul226a.Main.Models;
+package DeeGeeTec_Modul226a.Main.Models.JdbcModels;
 
 import java.util.List;
+
+import DeeGeeTec_Modul226a.Main.Models.AbstractModels.Item;
+import DeeGeeTec_Modul226a.Main.Models.AbstractModels.OrderDetails;
 
 public class OrderDetailsJdbc extends OrderDetails {
       /**

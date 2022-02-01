@@ -2,14 +2,14 @@ package DeeGeeTec_Modul226a.Main.Factories;
 
 import DeeGeeTec_Modul226a.HibernationType;
 import DeeGeeTec_Modul226a.Dbconfig.Configuration;
-import DeeGeeTec_Modul226a.Main.Models.Account;
-import DeeGeeTec_Modul226a.Main.Models.Cart;
-import DeeGeeTec_Modul226a.Main.Models.Item;
-import DeeGeeTec_Modul226a.Main.Models.Address;
-import DeeGeeTec_Modul226a.Main.Models.Order;
-import DeeGeeTec_Modul226a.Main.Models.OrderDetails;
-import DeeGeeTec_Modul226a.Main.Models.ShipmentDetails;
-import DeeGeeTec_Modul226a.Main.Models.Wishlist;
+import DeeGeeTec_Modul226a.Main.Models.AbstractModels.Account;
+import DeeGeeTec_Modul226a.Main.Models.AbstractModels.Address;
+import DeeGeeTec_Modul226a.Main.Models.AbstractModels.Cart;
+import DeeGeeTec_Modul226a.Main.Models.AbstractModels.Item;
+import DeeGeeTec_Modul226a.Main.Models.AbstractModels.Order;
+import DeeGeeTec_Modul226a.Main.Models.AbstractModels.OrderDetails;
+import DeeGeeTec_Modul226a.Main.Models.AbstractModels.ShipmentDetails;
+import DeeGeeTec_Modul226a.Main.Models.AbstractModels.Wishlist;
 
 public abstract class BackendFactory {
 

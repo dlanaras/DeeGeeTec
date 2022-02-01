@@ -1,29 +1,26 @@
-package DeeGeeTec_Modul226a.Main.Models;
+package DeeGeeTec_Modul226a.Main.Models.InMemoryModels;
 
-public class ItemJdbc extends Item {
-    /**
-     * This string contains the Name of the Item
-     */
+import java.util.ArrayList;
+
+import DeeGeeTec_Modul226a.Main.Models.AbstractModels.Item;
+
+public class ItemInMemory extends Item {
+
+    private static final ArrayList<ItemInMemory> items = new ArrayList<>(); 
+
     private String itemName;
-    /**
-     * This float contains the Price of an Item
-     */
     private float price;
-    /**
-     * This Int contains the ID of the Item
-     */
     private int itemId;
 
-    public ItemJdbc(String itemName, float price) {
+    public ItemInMemory(String itemName, float price) {
         this.itemName = itemName;
         this.price = price;
-
-        //... add this to db
+        items.add(this);
     }
 
     @Override
     public int getItemId() {
-        return this.itemId; 
+        return this.itemId;
     }
 
     @Override
@@ -48,7 +45,6 @@ public class ItemJdbc extends Item {
 
     @Override
     public void delte() {
-        // TODO Auto-generated method stub
-        
+        items.remove(this);
     }
 }

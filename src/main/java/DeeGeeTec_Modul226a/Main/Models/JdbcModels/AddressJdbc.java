@@ -1,4 +1,6 @@
-package DeeGeeTec_Modul226a.Main.Models;
+package DeeGeeTec_Modul226a.Main.Models.JdbcModels;
+
+import DeeGeeTec_Modul226a.Main.Models.AbstractModels.Address;
 
 public class AddressJdbc extends Address {
     /**

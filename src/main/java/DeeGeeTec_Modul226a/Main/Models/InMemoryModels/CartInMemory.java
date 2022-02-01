@@ -1,7 +1,10 @@
-package DeeGeeTec_Modul226a.Main.Models;
+package DeeGeeTec_Modul226a.Main.Models.InMemoryModels;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import DeeGeeTec_Modul226a.Main.Models.AbstractModels.Cart;
+import DeeGeeTec_Modul226a.Main.Models.AbstractModels.Item;
 
 public class CartInMemory extends Cart {
 

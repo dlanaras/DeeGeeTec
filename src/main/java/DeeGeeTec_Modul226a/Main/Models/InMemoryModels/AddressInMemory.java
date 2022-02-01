@@ -1,6 +1,8 @@
-package DeeGeeTec_Modul226a.Main.Models;
+package DeeGeeTec_Modul226a.Main.Models.InMemoryModels;
 
 import java.util.ArrayList;
+
+import DeeGeeTec_Modul226a.Main.Models.AbstractModels.Address;
 
 public class AddressInMemory extends Address {
 

@@ -2,7 +2,8 @@ package DeeGeeTec_Modul226a.Main;
 
 import DeeGeeTec_Modul226a.Dbconfig.JdbcDb;
 import DeeGeeTec_Modul226a.Main.Factories.BackendFactory;
-import DeeGeeTec_Modul226a.Main.Models.Account;
+import DeeGeeTec_Modul226a.Main.Models.AbstractModels.Account;
+
 import org.json.simple.parser.ParseException;
 
 import java.io.IOException;
