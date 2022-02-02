@@ -14,7 +14,7 @@ public class OrderInMemory extends Order {
 
     private static final ArrayList<OrderInMemory> orders = new ArrayList<>();
 
-    private int orderId;
+    private static int orderId;
     private Account account;
     private List<OrderDetails> orderDetails;
     private Date date = new Date();
@@ -22,13 +22,22 @@ public class OrderInMemory extends Order {
     public OrderInMemory(Account account, List<OrderDetails> orderDetails) {
         this.account = account;
         this.orderDetails = orderDetails;
-        this.date = Calendar.getInstance().getTime();
+        this.setDate(Calendar.getInstance().getTime());
         orders.add(this);
+        orderId++;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
     }
 
     @Override
     public int getOrderId() {
-        return this.orderId;
+        return orderId;
     }
 
     @Override

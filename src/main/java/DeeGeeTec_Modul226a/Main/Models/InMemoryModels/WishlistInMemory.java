@@ -11,16 +11,17 @@ public class WishlistInMemory extends Wishlist {
     private static final ArrayList<WishlistInMemory> wishlists = new ArrayList<>();
 
     private List<Item> wishlistItems;
-    private int wishlistId;
+    private static int wishlistId;
 
     public WishlistInMemory(List<Item> wishlistItems) {
         this.wishlistItems = wishlistItems;
         wishlists.add(this);
+        wishlistId++;
     }
 
     @Override
     public int getWishlistId() {
-        return this.wishlistId;
+        return wishlistId;
     }
 
     @Override

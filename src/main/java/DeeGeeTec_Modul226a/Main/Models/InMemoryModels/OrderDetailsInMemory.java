@@ -9,7 +9,7 @@ import DeeGeeTec_Modul226a.Main.Models.AbstractModels.OrderDetails;
 public class OrderDetailsInMemory extends OrderDetails {
     private static final ArrayList<OrderDetailsInMemory> orderDetailsObjects = new ArrayList<>();
 
-    private int orderDetailsId;
+    private static int orderDetailsId;
     private String orderDetails;
     private List<Item> items;
 
@@ -18,11 +18,12 @@ public class OrderDetailsInMemory extends OrderDetails {
         this.items = items;
 
         orderDetailsObjects.add(this);
+        orderDetailsId++;
     }
 
     @Override
     public int getOrderDetailsId() {
-        return this.orderDetailsId;
+        return orderDetailsId;
     }
 
     @Override

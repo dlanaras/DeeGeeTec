@@ -1,6 +1,5 @@
 package DeeGeeTec_Modul226a.Main.Models.JdbcModels;
 
-import DeeGeeTec_Modul226a.Dbconfig.JdbcDb;
 import DeeGeeTec_Modul226a.Main.Models.AbstractModels.Address;
 import DeeGeeTec_Modul226a.Main.Models.AbstractModels.Order;
 import DeeGeeTec_Modul226a.Main.Models.AbstractModels.ShipmentDetails;
@@ -19,11 +18,15 @@ public class ShipmentDetailsJdbc extends ShipmentDetails {
      */
     private int shipmentDetailsId;
 
-    private Address location;
-    private Order order;
+    private Address address;
 
-    public ShipmentDetailsJdbc(String shipmentDetails, Address location, Order order) {
+    private Order orderId;
+
+    public ShipmentDetailsJdbc(String shipmentDetails, Address address, Order orderId) {
         this.shipmentDetails = shipmentDetails;
+        this.address = address;
+        this.orderId = orderId;
+        //... add this to db
         this.location = location;
         this.order = order;
 
@@ -45,19 +48,27 @@ public class ShipmentDetailsJdbc extends ShipmentDetails {
         }
     }
 
+    public Order getOrderId() {
+        return orderId;
+    }
+
+    public void setOrderId(Order orderId) {
+        this.orderId = orderId;
+    }
+
     @Override
     public void setShipmentDetailsId(int shipmentDetailsId) {
         this.shipmentDetailsId = shipmentDetailsId;
     }
 
     @Override
-    public Address getLocation() {
-        return location;
+    public Address getAddress() {
+        return address;
     }
 
     @Override
-    public void setLocation(Address location) {
-        this.location = location;
+    public void setAddress(Address address) {
+        this.address = address;
     }
 
     /**

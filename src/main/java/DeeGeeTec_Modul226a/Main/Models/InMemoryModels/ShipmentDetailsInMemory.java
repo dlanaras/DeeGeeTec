@@ -8,36 +8,40 @@ import DeeGeeTec_Modul226a.Main.Models.AbstractModels.ShipmentDetails;
 
 public class ShipmentDetailsInMemory extends ShipmentDetails {
     private static final ArrayList<ShipmentDetails> shipmentDetailsObjects = new ArrayList<>();
-    private Order order;
+    private Order orderId;
     private String shipmentDetails;
-    private int shipmentDetailsId;
-    private Address location;
+    private static int shipmentDetailsId;
+    private Address address;
 
-    public ShipmentDetailsInMemory(String shipmentDetails, Address location, Order order) {
+    public ShipmentDetailsInMemory(String shipmentDetails, Address address, Order orderId) {
         this.shipmentDetails = shipmentDetails;
-        this.location = location;
-        this.order = order;
+        this.address = address;
+        this.orderId = orderId;
         shipmentDetailsObjects.add(this);
+        shipmentDetailsId++;
+    }
+
+    public Order getOrderId() {
+        return orderId;
+    }
+
+    public void setOrderId(Order orderId) {
+        this.orderId = orderId;
     }
 
     @Override
-    public void setShipmentDetailsId(int shipmentDetailsId) {
-        this.shipmentDetailsId = shipmentDetailsId;
+    public Address getAddress() {
+        return address;
     }
 
     @Override
-    public Address getLocation() {
-        return location;
-    }
-
-    @Override
-    public void setLocation(Address location) {
-        this.location = location;
+    public void setAddress(Address address) {
+        this.address = address;
     }
     
     @Override
     public int getShipmentDetailsId() {
-        return this.shipmentDetailsId;
+        return shipmentDetailsId;
     }
 
     @Override
@@ -53,5 +57,10 @@ public class ShipmentDetailsInMemory extends ShipmentDetails {
     @Override
     public void delete() {
         shipmentDetailsObjects.remove(this);        
+    }
+
+    @Override
+    public void setShipmentDetailsId(int shipmentDetailsId) {
+        shipmentDetailsObjects.remove(this);
     }
 }

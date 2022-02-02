@@ -12,20 +12,20 @@ public class AddressInMemory extends Address {
     private String plz;
     private String streetNum;
     private String place;
-    private int locationId;
+    private static int locationId;
 
     public AddressInMemory(String street, String plz, String streetNum, String place) {
         this.street = street;
         this.plz = plz;
         this.streetNum = streetNum;
         this.place = place;
-        this.locationId = 1; //TODO: change this only for testing perpuses used here
         locations.add(this);
+        locationId++;
     }
 
     @Override
     public int getAddressId() {
-        return this.locationId;
+        return locationId;
     }
 
     @Override

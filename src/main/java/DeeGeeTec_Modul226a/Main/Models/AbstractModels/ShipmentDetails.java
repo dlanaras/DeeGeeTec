@@ -1,41 +1,18 @@
 package DeeGeeTec_Modul226a.Main.Models.AbstractModels;
 
 public abstract class ShipmentDetails {
-    private Order order;
-    /**
-     * This String contains the shipmentDetails
-     */
-    private String shipmentDetails;
-    /**
-     * This int contains the shipmentdetails ID
-     */
-    private int shipmentDetailsId;
 
-    public void setShipmentDetailsId(int shipmentDetailsId) {
-        this.shipmentDetailsId = shipmentDetailsId;
-    }
+    public abstract void setShipmentDetailsId(int shipmentDetailsId);
 
-    public Address getLocation() {
-        return location;
-    }
+    public abstract Address getAddress();
 
-    public void setLocation(Address location) {
-        this.location = location;
-    }
+    public abstract void setAddress(Address address);
 
-    /**
-     * This contains the location of the shipmentdetails
-     */
-    private Address location;
-    public int getShipmentDetailsId() { return this.shipmentDetailsId; }
+    public abstract int getShipmentDetailsId();
 
-    public String getShipmentDetails() {
-        return shipmentDetails;
-    }
+    public abstract String getShipmentDetails();
 
-    public void setShipmentDetails(String shipmentDetails) {
-        this.shipmentDetails = shipmentDetails;
-    }
+    public abstract void setShipmentDetails(String shipmentDetails);
 
     public abstract void delete();
 }

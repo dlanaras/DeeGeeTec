@@ -29,7 +29,7 @@ public class AccountJdbc extends Account {
     /**
      * This Contains the Location connected to a account from the DB
      */
-    private Address location;
+    private Address address;
 
     private String firstName;
 
@@ -56,11 +56,11 @@ public class AccountJdbc extends Account {
 
     private int accountId;
 
-    public AccountJdbc(String username, String password, Address location, String phoneNumber, String email, String firstName, String lastName) {
+    public AccountJdbc(String username, String password, Address address, String phoneNumber, String email, String firstName, String lastName) {
         this.username = username;
         this.password = this.HashPassword(password);
         this.phoneNumber = phoneNumber;
-        this.location = location;
+        this.address = address;
         this.email = email;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -77,7 +77,7 @@ public class AccountJdbc extends Account {
             accountStatement.setString(3, this.username);
             accountStatement.setString(4, this.email);
             accountStatement.setString(5, this.password);
-            accountStatement.setInt(6, location.getAddressId());
+            accountStatement.setInt(6, address.getAddressId());
             
             accountStatement.executeUpdate();
             conn.commit();
@@ -88,8 +88,8 @@ public class AccountJdbc extends Account {
 
     }
 
-    public AccountJdbc(String username, String password, Address location, String email, String firstName, String lastName) { //phonenumber isn't necessary
-        this(username, password, location, null, firstName, lastName, email);
+    public AccountJdbc(String username, String password, Address address, String email, String firstName, String lastName) { //phonenumber isn't necessary
+        this(username, password, address, null, firstName, lastName, email);
     }
 
 
@@ -124,13 +124,13 @@ public class AccountJdbc extends Account {
     }
 
     @Override
-    public Address getLocation() {
-        return location;
+    public Address getAddress() {
+        return address;
     }
 
     @Override
-    public void setLocation(Address location) {
-        this.location = location;
+    public void setAddress(Address address) {
+        this.address = address;
     }
 
     @Override

@@ -10,17 +10,18 @@ public class ItemInMemory extends Item {
 
     private String itemName;
     private float price;
-    private int itemId;
+    private static int itemId;
 
     public ItemInMemory(String itemName, float price) {
         this.itemName = itemName;
         this.price = price;
         items.add(this);
+        itemId++;
     }
 
     @Override
     public int getItemId() {
-        return this.itemId;
+        return itemId;
     }
 
     @Override

@@ -22,77 +22,59 @@ import DeeGeeTec_Modul226a.Main.Models.JdbcModels.WishlistJdbc;
 
 public class BackendJdbcFactory extends BackendFactory {
     private static final BackendFactory factory=new BackendJdbcFactory();
+
     public static BackendFactory getFactory() {
         return factory;
     }
 
+    @Override
+    public Account createAccount(String username, String password, Address address, String email, String firstName, String lastName) {
 
-    public Account createAccount() {
-        return new AccountJdbc("", "", new AddressJdbc("", "", "", ""), "", "", "");
+        return new AccountJdbc(username, password, address, email, firstName, lastName);
+    }
+
+    @Override
+    public Cart createCart(List<Item> items) {
+
+        return new CartInMemory(items);
+    }
+
+    @Override
+    public Item createItem(String itemName, float price) {
+
+        return new ItemJdbc(itemName, price);
+    }
+
+    @Override
+    public Address createAddress(String street, String plz, String streetNum, String place) {
+
+        return new AddressJdbc(street, plz, streetNum, place);
+    }
+
+    @Override
+    public Order createOrder(Account account, List<OrderDetails> orderDetails) {
+
+        return new OrderJdbc(account, orderDetails);
+    }
+
+    @Override
+    public OrderDetails createOrderDetails(String orderDetails, List<Item> items) {
+
+        return new OrderDetailsJdbc(orderDetails, items);
+    }
+
+    @Override
+    public ShipmentDetails createShipmentDetails(String shipmentDetails, Address address, Order orderId) {
+
+        return new ShipmentDetailsJdbc(shipmentDetails, address, orderId);
+    }
+
+    @Override
+    public Wishlist createWishlist(List<Item> wishlistItems) {
+
+        return new WishlistJdbc(wishlistItems);
     }
 
 
-    public Cart createCart() {
-        // Always inMemory because DB doesnt have a table for this, because this should be only temporarely saved
-        return new CartInMemory(new ArrayList<>());
-    }
 
-
-    public Item createItem() {
-        return new ItemJdbc("", 2);
-    }
-
-
-    public Address createLocation() {
-        return new AddressJdbc("", "", "", "");
-    }
-
-
-    public Order createOrder() {
-        return new OrderJdbc(new AccountJdbc("", "", new AddressJdbc("", "", "", ""), "", "", ""), new ArrayList<>());
-    }
-
-
-    public OrderDetails createOrderDetails() {
-        return new OrderDetailsJdbc("", new ArrayList<>());
-    }
-
-
-    public ShipmentDetails createShipmentDetails() {
-        return new ShipmentDetailsJdbc("", new AddressJdbc("", "", "", ""), new OrderJdbc(new AccountJdbc("", "", new AddressJdbc("", "", "", ""), "", "", ""), new ArrayList<>()) {
-            @Override
-            public int getOrderId() {
-                return 0;
-            }
-
-            @Override
-            public Account getAccount() {
-                return null;
-            }
-
-            @Override
-            public void setAccount(Account account) {
-
-            }
-
-            @Override
-            public List<OrderDetails> getOrderDetails() {
-                return null;
-            }
-
-            @Override
-            public void setOrderDetails(List<OrderDetails> orderDetails) {
-
-            }
-
-            @Override
-            public void delete() {
-
-            }
-        });
-    }
-
-    public Wishlist createWishlist() {
-        return new WishlistJdbc(new AccountJdbc("", "", new AddressJdbc("", "", "", ""), "", "", ""));
-    }
 }
