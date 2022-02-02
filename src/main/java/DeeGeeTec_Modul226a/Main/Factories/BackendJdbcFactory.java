@@ -1,7 +1,8 @@
 package DeeGeeTec_Modul226a.Main.Factories;
 
-
+import java.util.ArrayList;
 import java.util.List;
+
 import DeeGeeTec_Modul226a.Main.Models.AbstractModels.Account;
 import DeeGeeTec_Modul226a.Main.Models.AbstractModels.Address;
 import DeeGeeTec_Modul226a.Main.Models.AbstractModels.Cart;
@@ -29,7 +30,7 @@ public class BackendJdbcFactory extends BackendFactory {
     @Override
     public Account createAccount(String username, String password, Address address, String email, String firstName, String lastName) {
 
-        return new AccountJdbc(username, password, address, email, firstName, lastName);
+        return new AccountJdbc(username, password, (AddressJdbc) address, email, firstName, lastName);
     }
 
     @Override
@@ -63,15 +64,15 @@ public class BackendJdbcFactory extends BackendFactory {
     }
 
     @Override
-    public ShipmentDetails createShipmentDetails(String shipmentDetails, Address address, Order orderId) {
+    public ShipmentDetails createShipmentDetails(String shipmentDetails, Address address, int orderId) {
 
         return new ShipmentDetailsJdbc(shipmentDetails, address, orderId);
     }
 
     @Override
-    public Wishlist createWishlist(List<Item> wishlistItems) {
+    public Wishlist createWishlist(List<Item> wishlistItems, Account account) {
 
-        return new WishlistJdbc(wishlistItems);
+        return new WishlistJdbc(wishlistItems, (AccountJdbc) account);
     }
 
 

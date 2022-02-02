@@ -8,12 +8,12 @@ import DeeGeeTec_Modul226a.Main.Models.AbstractModels.ShipmentDetails;
 
 public class ShipmentDetailsInMemory extends ShipmentDetails {
     private static final ArrayList<ShipmentDetails> shipmentDetailsObjects = new ArrayList<>();
-    private Order orderId;
+    private int orderId;
     private String shipmentDetails;
     private static int shipmentDetailsId;
     private Address address;
 
-    public ShipmentDetailsInMemory(String shipmentDetails, Address address, Order orderId) {
+    public ShipmentDetailsInMemory(String shipmentDetails, Address address, int orderId) {
         this.shipmentDetails = shipmentDetails;
         this.address = address;
         this.orderId = orderId;
@@ -21,11 +21,11 @@ public class ShipmentDetailsInMemory extends ShipmentDetails {
         shipmentDetailsId++;
     }
 
-    public Order getOrderId() {
+    public int getOrderId() {
         return orderId;
     }
 
-    public void setOrderId(Order orderId) {
+    public void setOrderId(int orderId) {
         this.orderId = orderId;
     }
 

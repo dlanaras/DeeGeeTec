@@ -30,6 +30,7 @@ import org.springframework.web.client.HttpServerErrorException.NotImplemented;
 import java.io.IOException;
 import java.sql.Array;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 /**
  * This is the main class of our project, it does nothing yet but will maybe

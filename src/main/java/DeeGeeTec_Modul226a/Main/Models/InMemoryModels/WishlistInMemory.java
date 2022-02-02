@@ -25,7 +25,7 @@ public class WishlistInMemory extends Wishlist {
     }
 
     @Override
-    public void addWishlistItems(Item item) {
+    public void additemtowishlist(Item item) {
         this.wishlistItems.add(item);
     }
 

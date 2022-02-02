@@ -3,10 +3,10 @@ package DeeGeeTec_Modul226a.Main.Models.AbstractModels;
 import java.util.List;
 
 public abstract class Wishlist {
- 
+
     public abstract int getWishlistId();
 
-    public abstract void addWishlistItems(Item item);
+    public abstract void additemtowishlist(Item item);
 
     public abstract void removeItem(Item item);
 
@@ -16,3 +16,4 @@ public abstract class Wishlist {
 
     public abstract void delete();
 }
+

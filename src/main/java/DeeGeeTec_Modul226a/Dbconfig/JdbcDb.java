@@ -11,6 +11,10 @@ import org.json.simple.parser.JSONParser;
 
 public class JdbcDb {
 public static Connection connection;
+
+    /**
+     * @return returns nothing, this is to make a connection to the db
+     */
     public static Connection getConnection() {
         try {
         Object ob = new JSONParser().parse(new FileReader("src/main/java/DeeGeeTec_Modul226a/Dbconfig/Configuration.json"));
