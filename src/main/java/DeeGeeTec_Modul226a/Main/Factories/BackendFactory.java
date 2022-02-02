@@ -1,5 +1,7 @@
 package DeeGeeTec_Modul226a.Main.Factories;
 
+import java.util.List;
+
 import DeeGeeTec_Modul226a.HibernationType;
 import DeeGeeTec_Modul226a.Dbconfig.Configuration;
 import DeeGeeTec_Modul226a.Main.Models.AbstractModels.Account;
@@ -13,14 +15,14 @@ import DeeGeeTec_Modul226a.Main.Models.AbstractModels.Wishlist;
 
 public abstract class BackendFactory {
 
-    public abstract Account createAccount();
-    public abstract Cart createCart();
-    public abstract Item createItem();
-    public abstract Address createLocation();
-    public abstract Order createOrder();
-    public abstract OrderDetails createOrderDetails();
-    public abstract ShipmentDetails createShipmentDetails();
-    public abstract Wishlist createWishlist();
+    public abstract Account createAccount(String userName, String password, Address address, String email, String firstName, String lastName);
+    public abstract Cart createCart(List<Item> items);
+    public abstract Item createItem(String itemName, float price);
+    public abstract Address createAddress(String street, String plz, String streetNum, String place);
+    public abstract Order createOrder(Account account, List<OrderDetails> orderDetails);
+    public abstract OrderDetails createOrderDetails(String orderDetails, List<Item> items);
+    public abstract ShipmentDetails createShipmentDetails(String shipmentDetails, Address address, Order orderId);
+    public abstract Wishlist createWishlist(List<Item> wishlistItems); //@sven the constructor should still accept a list of items in case we want to instantly fill the wishlist
 
 
     public static BackendFactory getFactory() {

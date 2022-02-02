@@ -13,28 +13,18 @@ public class AccountInMemory extends Account {
     private String password;
     private String username;
     private String phoneNumber;
-    private Address location;
+    private Address address;
     private String email;
     private static int accountId;
     private String firstName;
     private String lastName;
 
     
-
-    public AccountInMemory(String username, String password, Address location, String phoneNumber, String firstName, String lastName) {
+    public AccountInMemory(String username, String password, Address address, String phoneNumber, String email, String firstName, String lastName) {
         this.username = username;
         this.password = this.HashPassword(password);
         this.phoneNumber = phoneNumber;
-        this.location = location;
-        accounts.add(this);
-        accountId++;
-    }
-
-    public AccountInMemory(String username, String password, Address location, String phoneNumber, String email, String firstName, String lastName) {
-        this.username = username;
-        this.password = this.HashPassword(password);
-        this.phoneNumber = phoneNumber;
-        this.location = location;
+        this.address = address;
         this.email = email;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -42,8 +32,8 @@ public class AccountInMemory extends Account {
         accountId++;
     }
 
-    public AccountInMemory(String username, String password, Address location, String firstName, String lastName) { //phonenumber isn't necessary
-        this(username, password, location, null, firstName, lastName);
+    public AccountInMemory(String username, String password, Address address, String email, String firstName, String lastName) { //phonenumber isn't necessary
+        this(username, password, address, null, email, firstName, lastName);
     }
 
     
@@ -79,13 +69,13 @@ public class AccountInMemory extends Account {
     }
 
     @Override
-    public Address getLocation() {
-        return location;
+    public Address getAddress() {
+        return this.address;
     }
 
     @Override
-    public void setLocation(Address location) {
-        this.location = location;
+    public void setAddress(Address address) {
+        this.address = address;
     }
 
     @Override

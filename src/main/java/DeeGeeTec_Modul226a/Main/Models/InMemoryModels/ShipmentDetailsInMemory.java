@@ -11,11 +11,11 @@ public class ShipmentDetailsInMemory extends ShipmentDetails {
     private Order orderId;
     private String shipmentDetails;
     private static int shipmentDetailsId;
-    private Address location;
+    private Address address;
 
-    public ShipmentDetailsInMemory(String shipmentDetails, Address location, Order orderId) {
+    public ShipmentDetailsInMemory(String shipmentDetails, Address address, Order orderId) {
         this.shipmentDetails = shipmentDetails;
-        this.location = location;
+        this.address = address;
         this.orderId = orderId;
         shipmentDetailsObjects.add(this);
         shipmentDetailsId++;
@@ -30,13 +30,13 @@ public class ShipmentDetailsInMemory extends ShipmentDetails {
     }
 
     @Override
-    public Address getLocation() {
-        return location;
+    public Address getAddress() {
+        return address;
     }
 
     @Override
-    public void setLocation(Address location) {
-        this.location = location;
+    public void setAddress(Address address) {
+        this.address = address;
     }
     
     @Override

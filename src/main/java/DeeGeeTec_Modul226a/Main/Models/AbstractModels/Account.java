@@ -19,9 +19,9 @@ public abstract class Account {
 
     public abstract void setPhoneNumber(String phoneNumber);
 
-    public abstract Address getLocation();
+    public abstract Address getAddress();
 
-    public abstract void setLocation(Address location);
+    public abstract void setAddress(Address location);
 
     public abstract String HashPassword(String password);
 

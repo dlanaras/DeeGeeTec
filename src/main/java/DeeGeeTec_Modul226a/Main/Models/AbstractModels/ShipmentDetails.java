@@ -4,9 +4,9 @@ public abstract class ShipmentDetails {
 
     public abstract void setShipmentDetailsId(int shipmentDetailsId);
 
-    public abstract Address getLocation();
+    public abstract Address getAddress();
 
-    public abstract void setLocation(Address location);
+    public abstract void setAddress(Address address);
 
     public abstract int getShipmentDetailsId();
 

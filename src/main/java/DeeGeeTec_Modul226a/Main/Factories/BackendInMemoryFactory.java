@@ -16,7 +16,7 @@ import DeeGeeTec_Modul226a.Main.Models.InMemoryModels.OrderDetailsInMemory;
 import DeeGeeTec_Modul226a.Main.Models.InMemoryModels.OrderInMemory;
 import DeeGeeTec_Modul226a.Main.Models.InMemoryModels.ShipmentDetailsInMemory;
 import DeeGeeTec_Modul226a.Main.Models.InMemoryModels.WishlistInMemory;
-import java.util.ArrayList;
+import java.util.List;
 
 public class BackendInMemoryFactory extends BackendFactory {
 
@@ -25,43 +25,48 @@ public class BackendInMemoryFactory extends BackendFactory {
         return factory;
     }
 
+    @Override
+    public Account createAccount(String username, String password, Address address, String email, String firstName, String lastName) {
 
-    public Account createAccount() {
-        return new AccountInMemory("", "", new AddressInMemory("", "", "", ""), "", "");
+        return new AccountInMemory(username, password, address, email, firstName, lastName);
+    }
+    @Override
+    public Cart createCart(List<Item> items) {
+
+        return new CartInMemory(items);
+    }
+    @Override
+    public Item createItem(String itemName, float price) {
+
+        return new ItemInMemory(itemName, price);
+    }
+    @Override
+    public Address createAddress(String street, String plz, String streetNum, String place) {
+
+        return new AddressInMemory(street, plz, streetNum, place);
+    }
+    @Override
+    public Order createOrder(Account account, List<OrderDetails> orderDetails) {
+
+        return new OrderInMemory(account, orderDetails);
+    }
+    @Override
+    public OrderDetails createOrderDetails(String orderDetails, List<Item> items) {
+
+        return new OrderDetailsInMemory(orderDetails, items);
+    }
+    @Override
+    public ShipmentDetails createShipmentDetails(String shipmentDetails, Address address, Order orderId) {
+ 
+        return new ShipmentDetailsInMemory(shipmentDetails, address, orderId);
+    }
+    @Override
+    public Wishlist createWishlist(List<Item> wishlistItems) {
+ 
+        return new WishlistInMemory(wishlistItems);
     }
 
 
-    public Cart createCart() {
-        return new CartInMemory(new ArrayList<>());
-    }
-
-
-    public Item createItem() {
-        return new ItemInMemory("", 2);
-    }
-
-
-    public Address createLocation() {
-        return new AddressInMemory("", "", "", "");
-    }
-
-
-    public Order createOrder() {
-        return new OrderInMemory(new AccountInMemory("", "", new AddressInMemory("", "", "", "" ), "", ""), new ArrayList<>());
-    }
-
-
-    public OrderDetails createOrderDetails() {
-        return new OrderDetailsInMemory("", new ArrayList<>());
-    }
-
-
-    public ShipmentDetails createShipmentDetails() {
-        return new ShipmentDetailsInMemory("", new AddressInMemory("", "", "", ""),new OrderInMemory(new AccountInMemory("", "", new AddressInMemory("", "", "", "" ), "", ""), new ArrayList<>()));
-    }
-
-    public Wishlist createWishlist() {
-        return new WishlistInMemory(new ArrayList<>());
-    }
+    
 
 }

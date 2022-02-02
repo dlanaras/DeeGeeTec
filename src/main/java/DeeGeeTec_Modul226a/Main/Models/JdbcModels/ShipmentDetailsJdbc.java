@@ -14,13 +14,13 @@ public class ShipmentDetailsJdbc extends ShipmentDetails {
      */
     private int shipmentDetailsId;
 
-    private Address location;
+    private Address address;
     
     private Order orderId;
 
-    public ShipmentDetailsJdbc(String shipmentDetails, Address location, Order orderId) {
+    public ShipmentDetailsJdbc(String shipmentDetails, Address address, Order orderId) {
         this.shipmentDetails = shipmentDetails;
-        this.location = location;
+        this.address = address;
         this.orderId = orderId;
         //... add this to db
     }
@@ -39,13 +39,13 @@ public class ShipmentDetailsJdbc extends ShipmentDetails {
     }
 
     @Override
-    public Address getLocation() {
-        return location;
+    public Address getAddress() {
+        return address;
     }
 
     @Override
-    public void setLocation(Address location) {
-        this.location = location;
+    public void setAddress(Address address) {
+        this.address = address;
     }
 
     /**
