@@ -15,7 +15,7 @@ import DeeGeeTec_Modul226a.Main.Models.AbstractModels.Wishlist;
 import DeeGeeTec_Modul226a.Main.Models.InMemoryModels.AccountInMemory;
 import DeeGeeTec_Modul226a.Main.Models.InMemoryModels.AddressInMemory;
 import DeeGeeTec_Modul226a.Main.Models.JdbcModels.AccountJdbc;
-import jdk.incubator.vector.VectorOperators.Test;
+
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -86,6 +86,7 @@ public class Main {
                             4. order Items in Cart
                             5. show wishlist
                             6. show cart
+                            7. create address
                             0. exit
                     """);
             try {
@@ -128,7 +129,10 @@ public class Main {
                     showWishlist(userWishlist);
                 } else if (userAction == 6) {
                     showCart(userCart);
-                } else if (userAction == 0) {
+                } else if (userAction == 7) {
+                    factory.createAddress("ChadStreet","6969","420","Chadestershire");
+
+                }else if (userAction == 0) {
                     System.out.println("Walking out of store...");
                     break;
                 } else {

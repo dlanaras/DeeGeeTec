@@ -84,12 +84,11 @@ public class WishlistJdbc extends Wishlist {
     };
     @Override
     public void setItems(List<Item> items) {
-        System.out.println("Not Implemented yet");
     }
 
     @Override
     public void additemtowishlist(Item item) {
-        System.out.println("Not Implemented yet");
+
     }
 
     @Override
