@@ -18,6 +18,7 @@ import DeeGeeTec_Modul226a.Main.Models.InMemoryModels.OrderInMemory;
 import DeeGeeTec_Modul226a.Main.Models.InMemoryModels.ShipmentDetailsInMemory;
 import DeeGeeTec_Modul226a.Main.Models.InMemoryModels.WishlistInMemory;
 
+import javax.xml.stream.Location;
 import java.util.ArrayList;
 
 public class BackendInMemoryFactory extends BackendFactory {
@@ -49,7 +50,7 @@ public class BackendInMemoryFactory extends BackendFactory {
 
 
     public Order createOrder() {
-        return new OrderInMemory(new AccountInMemory("", "", new AddressInMemory("", "", "", ""), "", ""), new ArrayList<>(), new ShipmentDetailsInMemory("", new AddressInMemory("","","","")));
+        return new OrderInMemory(new AccountInMemory("", "", new AddressInMemory("", "", "", "" ), "", ""), new ArrayList<>());
     }
 
 
@@ -58,8 +59,8 @@ public class BackendInMemoryFactory extends BackendFactory {
     }
 
 
-    public ShipmentDetails creaShipmentDetails() {
-        return new ShipmentDetailsInMemory("", new AddressInMemory("","","",""));
+    public ShipmentDetails createShipmentDetails() {
+        return new ShipmentDetailsInMemory("", new AddressInMemory("", "", "", ""),new OrderInMemory(new AccountInMemory("", "", new AddressInMemory("", "", "", "" ), "", ""), new ArrayList<>()));
     }
 
     public Wishlist createWishlist() {

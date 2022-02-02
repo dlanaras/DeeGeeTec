@@ -1,6 +1,11 @@
 package DeeGeeTec_Modul226a.Main.Models.JdbcModels;
 
+import DeeGeeTec_Modul226a.Dbconfig.JdbcDb;
 import DeeGeeTec_Modul226a.Main.Models.AbstractModels.Item;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 
 public class ItemJdbc extends Item {
     /**
@@ -20,7 +25,21 @@ public class ItemJdbc extends Item {
         this.itemName = itemName;
         this.price = price;
 
-        //... add this to db
+        Connection conn = JdbcDb.getConnection();
+        //adds the item to the db
+        try {
+            conn.setAutoCommit(false);
+
+            PreparedStatement itemStatement = conn.prepareStatement("insert into items_tbl (itemname, price) values (?,?)");
+            itemStatement.setString(1, this.itemName);
+            itemStatement.setFloat(2, this.price);
+
+            itemStatement.executeUpdate();
+            conn.commit();
+            conn.setAutoCommit(true);
+        } catch(SQLException e) {
+            System.out.printf("Error with account SQL statement %s", e);
+        }
     }
 
     @Override

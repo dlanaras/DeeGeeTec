@@ -23,7 +23,7 @@ public class OrderDetailsJdbc extends OrderDetails {
         this.orderDetails = orderDetails;
         this.items = items;
 
-        //... add it to 
+        //... add it to @Dimi please do it im stupid
     }
 
     @Override

@@ -1,6 +1,11 @@
 package DeeGeeTec_Modul226a.Main.Models.JdbcModels;
 
+import DeeGeeTec_Modul226a.Dbconfig.JdbcDb;
 import DeeGeeTec_Modul226a.Main.Models.AbstractModels.Address;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 
 public class AddressJdbc extends Address {
     /**
@@ -30,7 +35,24 @@ public class AddressJdbc extends Address {
         this.streetNum = streetNum;
         this.place = place;
 
-        //... create new location in db
+        Connection conn = JdbcDb.getConnection();
+
+        //adds the location to the db
+        try {
+            conn.setAutoCommit(false);
+
+            PreparedStatement addressStatement = conn.prepareStatement("insert into address_tbl (PLZ, Street, Streetnumber, Place) values (?,?,?,?)");
+            addressStatement.setString(1, this.plz);
+            addressStatement.setString(2, this.street);
+            addressStatement.setString(3, this.streetNum);
+            addressStatement.setString(4, this.place);
+
+            addressStatement.executeUpdate();
+            conn.commit();
+            conn.setAutoCommit(true);
+        } catch(SQLException e) {
+            System.out.printf("Error with account SQL statement %s", e);
+        }
     }
 
     @Override

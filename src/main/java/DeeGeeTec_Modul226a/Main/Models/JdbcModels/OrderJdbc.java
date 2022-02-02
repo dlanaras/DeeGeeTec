@@ -1,6 +1,12 @@
 package DeeGeeTec_Modul226a.Main.Models.JdbcModels;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
+import DeeGeeTec_Modul226a.Dbconfig.JdbcDb;
 import DeeGeeTec_Modul226a.Main.Models.AbstractModels.Account;
 import DeeGeeTec_Modul226a.Main.Models.AbstractModels.Order;
 import DeeGeeTec_Modul226a.Main.Models.AbstractModels.OrderDetails;
@@ -22,15 +28,32 @@ public class OrderJdbc extends Order {
     /**
      * this contains the shipmentdetails of a order
      */
-    private ShipmentDetails shipmentDetails;
+    private Date date = new Date();
 
-    public OrderJdbc(Account account, List<OrderDetails> orderDetails, ShipmentDetails shipmentDetails) {
+    public OrderJdbc(Account account, List<OrderDetails> orderDetails) {
         this.account = account;
         this.orderDetails = orderDetails;
-        this.shipmentDetails = shipmentDetails;
+        this.date = Calendar.getInstance().getTime();
 
-        //... add it to db
+        Connection conn = JdbcDb.getConnection();
+        //adds the order to the db
+        try {
+            conn.setAutoCommit(false);
+
+            PreparedStatement orderStatement = conn.prepareStatement("insert into order_tbl (orderdate, cancelled, account_IDFK) values (?,?,?)");
+            //has to be checked if works
+            orderStatement.setString(1, String.valueOf(this.date));
+            orderStatement.setInt(2, 0);
+            orderStatement.setInt(3, account.getAccountId());
+
+            orderStatement.executeUpdate();
+            conn.commit();
+            conn.setAutoCommit(true);
+        } catch(SQLException e) {
+            System.out.printf("Error with account SQL statement %s", e);
+        }
     }
+
 
     @Override
     public int getOrderId() {
@@ -55,16 +78,6 @@ public class OrderJdbc extends Order {
     @Override
     public void setOrderDetails(List<OrderDetails> orderDetails) {
         this.orderDetails = orderDetails;
-    }
-
-    @Override
-    public ShipmentDetails getShipmentDetails() {
-        return shipmentDetails;
-    }
-
-    @Override
-    public void setShipmentDetails(ShipmentDetails shipmentDetails) {
-        this.shipmentDetails = shipmentDetails;
     }
 
     @Override

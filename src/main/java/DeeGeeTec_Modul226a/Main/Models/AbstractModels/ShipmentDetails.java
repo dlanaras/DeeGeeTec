@@ -1,6 +1,7 @@
 package DeeGeeTec_Modul226a.Main.Models.AbstractModels;
 
 public abstract class ShipmentDetails {
+    private Order order;
     /**
      * This String contains the shipmentDetails
      */

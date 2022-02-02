@@ -14,9 +14,5 @@ public abstract class Order {
 
     public abstract void setOrderDetails(List<OrderDetails> orderDetails);
 
-    public abstract ShipmentDetails getShipmentDetails();
-
-    public abstract void setShipmentDetails(ShipmentDetails shipmentDetails);
-
     public abstract void delete();
 }

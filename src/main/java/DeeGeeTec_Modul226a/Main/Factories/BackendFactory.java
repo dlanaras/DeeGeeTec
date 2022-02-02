@@ -19,7 +19,7 @@ public abstract class BackendFactory {
     public abstract Address createLocation();
     public abstract Order createOrder();
     public abstract OrderDetails createOrderDetails();
-    public abstract ShipmentDetails creaShipmentDetails(); 
+    public abstract ShipmentDetails createShipmentDetails();
     public abstract Wishlist createWishlist();
 
 

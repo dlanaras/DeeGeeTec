@@ -1,6 +1,7 @@
 package DeeGeeTec_Modul226a.Main.Models.JdbcModels;
 
 import DeeGeeTec_Modul226a.Main.Models.AbstractModels.Address;
+import DeeGeeTec_Modul226a.Main.Models.AbstractModels.Order;
 import DeeGeeTec_Modul226a.Main.Models.AbstractModels.ShipmentDetails;
 
 public class ShipmentDetailsJdbc extends ShipmentDetails {
@@ -14,11 +15,12 @@ public class ShipmentDetailsJdbc extends ShipmentDetails {
     private int shipmentDetailsId;
 
     private Address location;
-    
-    public ShipmentDetailsJdbc(String shipmentDetails, Address location) {
+    private Order order;
+
+    public ShipmentDetailsJdbc(String shipmentDetails, Address location, Order order) {
         this.shipmentDetails = shipmentDetails;
         this.location = location;
-
+        this.order = order;
         //... add this to db
     }
 

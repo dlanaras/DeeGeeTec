@@ -1,6 +1,8 @@
 package DeeGeeTec_Modul226a.Main.Models.InMemoryModels;
 
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import DeeGeeTec_Modul226a.Main.Models.AbstractModels.Account;
@@ -15,12 +17,12 @@ public class OrderInMemory extends Order {
     private int orderId;
     private Account account;
     private List<OrderDetails> orderDetails;
-    private ShipmentDetails shipmentDetails;
+    private Date date = new Date();
 
-    public OrderInMemory(Account account, List<OrderDetails> orderDetails, ShipmentDetails shipmentDetails) {
+    public OrderInMemory(Account account, List<OrderDetails> orderDetails) {
         this.account = account;
         this.orderDetails = orderDetails;
-        this.shipmentDetails = shipmentDetails;
+        this.date = Calendar.getInstance().getTime();
         orders.add(this);
     }
 
@@ -49,15 +51,6 @@ public class OrderInMemory extends Order {
         this.orderDetails = orderDetails;
     }
 
-    @Override
-    public ShipmentDetails getShipmentDetails() {
-        return shipmentDetails;
-    }
-
-    @Override
-    public void setShipmentDetails(ShipmentDetails shipmentDetails) {
-        this.shipmentDetails = shipmentDetails;
-    }
 
     @Override
     public void delete() {
