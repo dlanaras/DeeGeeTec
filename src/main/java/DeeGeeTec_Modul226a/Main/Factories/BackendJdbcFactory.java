@@ -93,6 +93,6 @@ public class BackendJdbcFactory extends BackendFactory {
     }
 
     public Wishlist createWishlist() {
-        return new WishlistJdbc(new ArrayList<>());
+        return new WishlistJdbc(new AccountJdbc("", "", new AddressJdbc("", "", "", ""), "", "", ""));
     }
 }

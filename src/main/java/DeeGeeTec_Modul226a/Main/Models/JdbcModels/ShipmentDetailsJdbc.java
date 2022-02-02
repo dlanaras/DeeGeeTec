@@ -1,8 +1,13 @@
 package DeeGeeTec_Modul226a.Main.Models.JdbcModels;
 
+import DeeGeeTec_Modul226a.Dbconfig.JdbcDb;
 import DeeGeeTec_Modul226a.Main.Models.AbstractModels.Address;
 import DeeGeeTec_Modul226a.Main.Models.AbstractModels.Order;
 import DeeGeeTec_Modul226a.Main.Models.AbstractModels.ShipmentDetails;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 
 public class ShipmentDetailsJdbc extends ShipmentDetails {
     /**
@@ -21,7 +26,23 @@ public class ShipmentDetailsJdbc extends ShipmentDetails {
         this.shipmentDetails = shipmentDetails;
         this.location = location;
         this.order = order;
-        //... add this to db
+
+        Connection conn = JdbcDb.getConnection();
+        //adds the shipmentdetails to the db
+        try {
+            conn.setAutoCommit(false);
+
+            PreparedStatement orderStatement = conn.prepareStatement("insert into shipmentdetails_tbl (order_IDFK, address_IDFK) values (?,?)");
+            //has to be checked if works
+            orderStatement.setInt(1, order.getOrderId());
+            orderStatement.setInt(2, location.getAddressId());
+
+            orderStatement.executeUpdate();
+            conn.commit();
+            conn.setAutoCommit(true);
+        } catch(SQLException e) {
+            System.out.printf("Error with account SQL statement %s", e);
+        }
     }
 
     @Override
