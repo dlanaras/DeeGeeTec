@@ -10,19 +10,23 @@ public class ShipmentDetailsInMemory extends ShipmentDetails {
     private static final ArrayList<ShipmentDetails> shipmentDetailsObjects = new ArrayList<>();
     private Order order;
     private String shipmentDetails;
-    private int shipmentDetailsId;
+    private static int shipmentDetailsId;
     private Address location;
 
     public ShipmentDetailsInMemory(String shipmentDetails, Address location, Order order) {
         this.shipmentDetails = shipmentDetails;
         this.location = location;
-        this.order = order;
+        this.setOrder(order);
         shipmentDetailsObjects.add(this);
+        shipmentDetailsId++;
     }
 
-    @Override
-    public void setShipmentDetailsId(int shipmentDetailsId) {
-        this.shipmentDetailsId = shipmentDetailsId;
+    public Order getOrder() {
+        return order;
+    }
+
+    public void setOrder(Order order) {
+        this.order = order;
     }
 
     @Override

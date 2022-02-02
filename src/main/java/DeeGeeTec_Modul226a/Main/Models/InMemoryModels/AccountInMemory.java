@@ -15,7 +15,7 @@ public class AccountInMemory extends Account {
     private String phoneNumber;
     private Address location;
     private String email;
-    private int accountId;
+    private static int accountId;
     private String firstName;
     private String lastName;
 
@@ -27,6 +27,7 @@ public class AccountInMemory extends Account {
         this.phoneNumber = phoneNumber;
         this.location = location;
         accounts.add(this);
+        accountId++;
     }
 
     public AccountInMemory(String username, String password, Address location, String phoneNumber, String email, String firstName, String lastName) {
@@ -38,6 +39,7 @@ public class AccountInMemory extends Account {
         this.firstName = firstName;
         this.lastName = lastName;
         accounts.add(this);
+        accountId++;
     }
 
     public AccountInMemory(String username, String password, Address location, String firstName, String lastName) { //phonenumber isn't necessary
@@ -53,7 +55,7 @@ public class AccountInMemory extends Account {
 
     @Override
     public int getAccountId() {
-        return this.accountId;
+        return accountId;
     }
 
     @Override

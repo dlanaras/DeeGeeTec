@@ -59,37 +59,7 @@ public class BackendJdbcFactory extends BackendFactory {
 
 
     public ShipmentDetails createShipmentDetails() {
-        return new ShipmentDetailsJdbc("", new AddressJdbc("", "", "", ""), new OrderJdbc(new AccountJdbc("", "", new AddressJdbc("", "", "", ""), "", "", ""), new ArrayList<>()) {
-            @Override
-            public int getOrderId() {
-                return 0;
-            }
-
-            @Override
-            public Account getAccount() {
-                return null;
-            }
-
-            @Override
-            public void setAccount(Account account) {
-
-            }
-
-            @Override
-            public List<OrderDetails> getOrderDetails() {
-                return null;
-            }
-
-            @Override
-            public void setOrderDetails(List<OrderDetails> orderDetails) {
-
-            }
-
-            @Override
-            public void delete() {
-
-            }
-        });
+        return new ShipmentDetailsJdbc("", new AddressJdbc("", "", "", ""), new OrderJdbc(new AccountJdbc("", "", new AddressJdbc("", "", "", ""), "", "", ""), new ArrayList<>()));
     }
 
     public Wishlist createWishlist() {

@@ -10,17 +10,18 @@ public class CartInMemory extends Cart {
 
     private static final ArrayList<CartInMemory> carts = new ArrayList<>();
     private List<Item> cartItems = new ArrayList<>();
-    private int cartId;
+    private static int cartId;
 
 
     public CartInMemory(List<Item> items) {
         this.cartItems = items;
         carts.add(this);
+        cartId++;
     }
 
     @Override
     public int getCartId() { 
-        return this.cartId;
+        return cartId;
     }
 
     @Override
