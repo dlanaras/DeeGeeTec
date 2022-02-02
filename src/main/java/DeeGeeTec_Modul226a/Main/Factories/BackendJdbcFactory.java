@@ -1,8 +1,6 @@
 package DeeGeeTec_Modul226a.Main.Factories;
 
 import java.util.ArrayList;
-import java.util.List;
-
 import DeeGeeTec_Modul226a.Main.Models.AbstractModels.Account;
 import DeeGeeTec_Modul226a.Main.Models.AbstractModels.Address;
 import DeeGeeTec_Modul226a.Main.Models.AbstractModels.Cart;

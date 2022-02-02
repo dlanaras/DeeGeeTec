@@ -1,6 +1,5 @@
 package DeeGeeTec_Modul226a.Main.Factories;
 
-import DeeGeeTec_Modul226a.Main.Models.*;
 import DeeGeeTec_Modul226a.Main.Models.AbstractModels.Account;
 import DeeGeeTec_Modul226a.Main.Models.AbstractModels.Address;
 import DeeGeeTec_Modul226a.Main.Models.AbstractModels.Cart;
@@ -17,8 +16,6 @@ import DeeGeeTec_Modul226a.Main.Models.InMemoryModels.OrderDetailsInMemory;
 import DeeGeeTec_Modul226a.Main.Models.InMemoryModels.OrderInMemory;
 import DeeGeeTec_Modul226a.Main.Models.InMemoryModels.ShipmentDetailsInMemory;
 import DeeGeeTec_Modul226a.Main.Models.InMemoryModels.WishlistInMemory;
-
-import javax.xml.stream.Location;
 import java.util.ArrayList;
 
 public class BackendInMemoryFactory extends BackendFactory {

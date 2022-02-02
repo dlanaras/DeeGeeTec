@@ -15,13 +15,22 @@ public class ShipmentDetailsJdbc extends ShipmentDetails {
     private int shipmentDetailsId;
 
     private Address location;
-    private Order order;
+    
+    private Order orderId;
 
-    public ShipmentDetailsJdbc(String shipmentDetails, Address location, Order order) {
+    public ShipmentDetailsJdbc(String shipmentDetails, Address location, Order orderId) {
         this.shipmentDetails = shipmentDetails;
         this.location = location;
-        this.order = order;
+        this.orderId = orderId;
         //... add this to db
+    }
+
+    public Order getOrderId() {
+        return orderId;
+    }
+
+    public void setOrderId(Order orderId) {
+        this.orderId = orderId;
     }
 
     @Override
