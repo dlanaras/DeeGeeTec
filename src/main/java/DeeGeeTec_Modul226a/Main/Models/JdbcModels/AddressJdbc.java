@@ -1,10 +1,12 @@
 package DeeGeeTec_Modul226a.Main.Models.JdbcModels;
 
 import DeeGeeTec_Modul226a.Dbconfig.JdbcDb;
+import DeeGeeTec_Modul226a.Main.Models.AbstractModels.Account;
 import DeeGeeTec_Modul226a.Main.Models.AbstractModels.Address;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class AddressJdbc extends Address {
@@ -54,7 +56,29 @@ public class AddressJdbc extends Address {
             System.out.printf("Error with account SQL statement %s", e);
         }
     }
+    public int getAddressIdfromdb(Address address) {
+        Connection conn = JdbcDb.getConnection();
+        int addressidreturned = 0;
+        try (PreparedStatement statement = conn.prepareStatement("""
+            SELECT address_ID
+            FROM address_tbl
+            WHERE Street = ? AND Streetnumber = ?;
+            
+        """)) {
+            statement.setString(1, address.getStreet());
+            statement.setString(2, address.getStreetNum());
+            ResultSet resultSet = statement.executeQuery();
+            while (resultSet.next()) {
+                addressidreturned = resultSet.getInt(1); // by column index
 
+
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return addressidreturned;
+    };
     @Override
     public int getAddressId() { return this.addressId; }
 

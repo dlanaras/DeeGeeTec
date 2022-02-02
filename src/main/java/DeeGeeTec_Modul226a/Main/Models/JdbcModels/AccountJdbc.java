@@ -2,6 +2,7 @@ package DeeGeeTec_Modul226a.Main.Models.JdbcModels;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import org.apache.commons.codec.digest.DigestUtils;
@@ -31,8 +32,14 @@ public class AccountJdbc extends Account {
      */
     private Address address;
 
+    /**
+     * This contains the firstname
+     */
     private String firstName;
 
+    /**
+     * This contains the lastname
+     */
     private String lastName;
 
     @Override
@@ -56,7 +63,7 @@ public class AccountJdbc extends Account {
 
     private int accountId;
 
-    public AccountJdbc(String username, String password, Address address, String phoneNumber, String email, String firstName, String lastName) {
+    public AccountJdbc(String username, String password, AddressJdbc address, String phoneNumber, String email, String firstName, String lastName) {
         this.username = username;
         this.password = this.HashPassword(password);
         this.phoneNumber = phoneNumber;
@@ -77,7 +84,7 @@ public class AccountJdbc extends Account {
             accountStatement.setString(3, this.username);
             accountStatement.setString(4, this.email);
             accountStatement.setString(5, this.password);
-            accountStatement.setInt(6, address.getAddressId());
+            accountStatement.setInt(6, address.getAddressIdfromdb(address));
             
             accountStatement.executeUpdate();
             conn.commit();
@@ -88,10 +95,9 @@ public class AccountJdbc extends Account {
 
     }
 
-    public AccountJdbc(String username, String password, Address address, String email, String firstName, String lastName) { //phonenumber isn't necessary
+    public AccountJdbc(String username, String password, AddressJdbc address, String email, String firstName, String lastName) { //phonenumber isn't necessary
         this(username, password, address, null, firstName, lastName, email);
     }
-
 
     @Override
     public void setPassword(String password) {
@@ -100,8 +106,30 @@ public class AccountJdbc extends Account {
 
     @Override
     public int getAccountId() {
-        return this.accountId;
+        return accountId;
     }
+
+    public int getAccountIdfromdb(Account account) {
+        Connection conn = JdbcDb.getConnection();
+       int accountidreturned = 0;
+        try (PreparedStatement statement = conn.prepareStatement("""
+            SELECT account_ID
+            FROM account_tbl
+            WHERE Username = ?;
+        """)) {
+           statement.setString(1, account.getUsername());
+            ResultSet resultSet = statement.executeQuery();
+            while (resultSet.next()) {
+               accountidreturned = resultSet.getInt(1); // by column index
+
+
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return accountidreturned;
+    };
 
     @Override
     public String getUsername() {

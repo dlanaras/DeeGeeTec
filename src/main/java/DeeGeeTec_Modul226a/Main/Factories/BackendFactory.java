@@ -21,10 +21,10 @@ public abstract class BackendFactory {
     public abstract Address createAddress(String street, String plz, String streetNum, String place);
     public abstract Order createOrder(Account account, List<OrderDetails> orderDetails);
     public abstract OrderDetails createOrderDetails(String orderDetails, List<Item> items);
-    public abstract ShipmentDetails createShipmentDetails(String shipmentDetails, Address address, Order orderId);
-    public abstract Wishlist createWishlist(List<Item> wishlistItems); //@sven the constructor should still accept a list of items in case we want to instantly fill the wishlist
+    public abstract ShipmentDetails createShipmentDetails(String shipmentDetails, Address address, int orderId);
+    public abstract Wishlist createWishlist(List<Item> wishlistItems, Account account); //@sven the constructor should still accept a list of items in case we want to instantly fill the wishlist
 
-
+        //depending on the hibernation we get the inmemory factory or jdbc factory
     public static BackendFactory getFactory() {
         if(Configuration.hibernation == HibernationType.inMemory) {
             return BackendInMemoryFactory.getFactory();

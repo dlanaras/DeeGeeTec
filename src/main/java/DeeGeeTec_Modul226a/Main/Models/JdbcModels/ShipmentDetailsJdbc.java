@@ -1,5 +1,6 @@
 package DeeGeeTec_Modul226a.Main.Models.JdbcModels;
 
+import DeeGeeTec_Modul226a.Dbconfig.JdbcDb;
 import DeeGeeTec_Modul226a.Main.Models.AbstractModels.Address;
 import DeeGeeTec_Modul226a.Main.Models.AbstractModels.Order;
 import DeeGeeTec_Modul226a.Main.Models.AbstractModels.ShipmentDetails;
@@ -20,15 +21,12 @@ public class ShipmentDetailsJdbc extends ShipmentDetails {
 
     private Address address;
 
-    private Order orderId;
+    private int orderId;
 
-    public ShipmentDetailsJdbc(String shipmentDetails, Address address, Order orderId) {
+    public ShipmentDetailsJdbc(String shipmentDetails, Address address, int orderId) {
         this.shipmentDetails = shipmentDetails;
         this.address = address;
         this.orderId = orderId;
-        //... add this to db
-        this.location = location;
-        this.order = order;
 
         Connection conn = JdbcDb.getConnection();
         //adds the shipmentdetails to the db
@@ -37,8 +35,8 @@ public class ShipmentDetailsJdbc extends ShipmentDetails {
 
             PreparedStatement orderStatement = conn.prepareStatement("insert into shipmentdetails_tbl (order_IDFK, address_IDFK) values (?,?)");
             //has to be checked if works
-            orderStatement.setInt(1, order.getOrderId());
-            orderStatement.setInt(2, location.getAddressId());
+            orderStatement.setInt(1, orderId);
+            orderStatement.setInt(2, address.getAddressId());
 
             orderStatement.executeUpdate();
             conn.commit();
@@ -48,11 +46,11 @@ public class ShipmentDetailsJdbc extends ShipmentDetails {
         }
     }
 
-    public Order getOrderId() {
+    public int getOrderId() {
         return orderId;
     }
 
-    public void setOrderId(Order orderId) {
+    public void setOrderId(int orderId) {
         this.orderId = orderId;
     }
 

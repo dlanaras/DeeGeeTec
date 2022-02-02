@@ -25,21 +25,49 @@ public class BackendInMemoryFactory extends BackendFactory {
         return factory;
     }
 
+    /**
+     * @param username Username of the acc
+     * @param password Password of the acc
+     * @param address  address of the acc
+     * @param email    email of the acc
+     * @param firstName firstname of the acc
+     * @param lastName  lastname of the acc
+     * @return returns a new account in memory
+     */
     @Override
     public Account createAccount(String username, String password, Address address, String email, String firstName, String lastName) {
 
         return new AccountInMemory(username, password, address, email, firstName, lastName);
     }
+
+    /**
+     * @param items list of items to add to the cart
+     * @return  return a new cart with the items
+     */
     @Override
     public Cart createCart(List<Item> items) {
 
         return new CartInMemory(items);
     }
+
+    /**
+     * @param itemName name of the item
+     * @param price    price of the item
+     * @return  return a new item with the provided name and price
+     */
     @Override
     public Item createItem(String itemName, float price) {
 
         return new ItemInMemory(itemName, price);
     }
+
+    /**
+     * @param street streetname of the address
+     * @param plz   plz of the address
+     * @param streetNum streetnumber of the address
+     * @param place place of the address
+     * @return  returns a new address
+     */
     @Override
     public Address createAddress(String street, String plz, String streetNum, String place) {
 
@@ -56,12 +84,12 @@ public class BackendInMemoryFactory extends BackendFactory {
         return new OrderDetailsInMemory(orderDetails, items);
     }
     @Override
-    public ShipmentDetails createShipmentDetails(String shipmentDetails, Address address, Order orderId) {
+    public ShipmentDetails createShipmentDetails(String shipmentDetails, Address address, int orderId) {
  
         return new ShipmentDetailsInMemory(shipmentDetails, address, orderId);
     }
     @Override
-    public Wishlist createWishlist(List<Item> wishlistItems) {
+    public Wishlist createWishlist(List<Item> wishlistItems, Account account) {
  
         return new WishlistInMemory(wishlistItems);
     }

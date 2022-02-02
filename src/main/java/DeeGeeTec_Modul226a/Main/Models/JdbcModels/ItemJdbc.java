@@ -1,10 +1,12 @@
 package DeeGeeTec_Modul226a.Main.Models.JdbcModels;
 
 import DeeGeeTec_Modul226a.Dbconfig.JdbcDb;
+import DeeGeeTec_Modul226a.Main.Models.AbstractModels.Address;
 import DeeGeeTec_Modul226a.Main.Models.AbstractModels.Item;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class ItemJdbc extends Item {
@@ -41,7 +43,28 @@ public class ItemJdbc extends Item {
             System.out.printf("Error with account SQL statement %s", e);
         }
     }
+    public int getItemidfromDB(Item item) {
+        Connection conn = JdbcDb.getConnection();
+        int itemidreturned = 0;
+        try (PreparedStatement statement = conn.prepareStatement("""
+            SELECT item_ID
+            FROM items_tbl
+            WHERE itemname = ?;
+            
+        """)) {
+            statement.setString(1, item.getItemName());
+            ResultSet resultSet = statement.executeQuery();
+            while (resultSet.next()) {
+                itemidreturned = resultSet.getInt(1); // by column index
 
+
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return itemidreturned;
+    };
     @Override
     public int getItemId() {
         return this.itemId; 
