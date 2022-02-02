@@ -52,13 +52,13 @@ public class Main {
             factory.createItem("Amd Epyc", 4200.42f),
             factory.createItem("Intelij i20 why", 1337.13f)
     };
-    public static Wishlist userWishlist = factory.createWishlist(new ArrayList<>());
+    public static Wishlist userWishlist = factory.createWishlist(new ArrayList<>(), userAccount);
     public static Cart userCart = null;
     public static ArrayList<OrderDetails> orderDetails = new ArrayList<>();
 
     public static void main(String[] args) throws SQLException, ParseException, IOException, ClassNotFoundException {
 
-        userWishlist.addWishlistItems(items[0]);
+        userWishlist.additemtowishlist(items[0]);
 
         while (true) {
             System.out.println("Welcome to Deegeetec (Pretend this is a website)");
@@ -99,7 +99,9 @@ public class Main {
                     listItems(items);
                     int itemToAdd = sc.nextInt();
 
-                    throw new NotImplementedException("");
+                    userWishlist.additemtowishlist(items[itemToAdd-1]);
+
+                    showWishlist(userWishlist);
 
                 } else if (userAction == 3) {
                     showWishlist(userWishlist);
